@@ -1,5 +1,11 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
 <title>5 Years of AI</title>
 <meta name="claude:viewport-fit-sides" content="cover">
+<style>:root{color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}html{scroll-padding-top:env(safe-area-inset-top,0px)}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,400;0,500;0,600;0,700;0,800;0,900;1,400&display=swap">
@@ -135,6 +141,23 @@ section.block { padding-block: 64px; border-bottom: 1px solid var(--line); }
 .agenda .verb { font-family: var(--font-mono); font-size: 0.75em; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
 .agenda p { color: var(--muted); font-size: 0.93em; }
 .qa-note { margin-top: 14px; color: var(--muted); font-size: 0.92em; }
+.objs { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.objs > li { display: grid; grid-template-columns: 52px minmax(0, 1fr); gap: 16px; align-items: start; background: var(--surface); border: 1px solid var(--line); border-left: 5px solid var(--gold); border-radius: 4px; padding: 12px 18px 12px 14px; }
+.obj-num { font-size: 2em; font-weight: 900; line-height: 1; color: var(--ink); text-decoration: none; text-align: center; padding-top: 2px; }
+.obj-num:hover { color: var(--accent); }
+.obj-body { display: grid; gap: 4px; min-width: 0; }
+.obj-sec { font-size: 0.74em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--accent); }
+.obj-body p { font-size: 1em; }
+.obj-body ul { margin: 4px 0 0; padding-left: 18px; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 4px 28px; color: var(--muted); font-size: 0.9em; }
+@media (min-width: 901px) {
+  .objs > li { grid-template-columns: 40px minmax(0, 1fr); padding: 9px 18px 9px 12px; gap: 12px; }
+  .obj-num { font-size: 1.7em; }
+  .obj-body { grid-template-columns: 200px minmax(0, 1fr); column-gap: 20px; row-gap: 2px; align-items: start; }
+  .obj-sec { grid-row: span 2; padding-top: 4px; line-height: 1.35; }
+  .obj-body p, .obj-body ul { grid-column: 2; }
+  #agenda .qa-note { margin-top: 10px; }
+}
+@media (max-width: 900px) { .obj-body ul { grid-template-columns: minmax(0, 1fr); } }
 
 /* Shifts */
 .shift-bar { display: flex; flex-wrap: wrap; gap: 12px; align-items: center; justify-content: space-between; margin-bottom: 20px; }
@@ -171,7 +194,11 @@ section.block.slide#terms { padding-block: 20px; }
 .shift-index .n { grid-row: span 2; font-size: 1.8em; font-weight: 900; line-height: 1; }
 .shift-index strong { font-size: 1.05em; }
 .shift-index .tg { color: var(--muted); font-size: 0.88em; }
-.shift-big { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: 20px; }
+.shift-big { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
+.shift-big .tcol { padding: 20px 22px; }
+.shift-big .tcol p { font-size: 1.25em; }
+.tcol.three { border-top-color: var(--then); }
+.tcol.five p { opacity: 0.85; }
 .tcol { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 24px 28px; display: grid; gap: 12px; align-content: start; }
 .tcol.now { border-top: 6px solid var(--gold); }
 .tcol.then { border-top: 6px solid var(--line); }
@@ -437,6 +464,15 @@ section.block.slide { padding-block: 26px; }
 .div-num { display: block; font-size: 8em; font-weight: 900; line-height: .85; color: var(--gold); letter-spacing: -0.04em; }
 .divider h2 { font-size: clamp(2em, 4.5vw, 3.4em); font-weight: 900; margin-top: 16px; letter-spacing: -0.02em; }
 .div-sub { margin-top: 16px; color: var(--hero-muted); font-size: 1.2em; max-width: 44ch; }
+.divider .div-num { font-size: 5em; }
+.divider h2 { font-size: clamp(1.8em, 3.6vw, 2.7em); margin-top: 10px; }
+.divider .div-sub { margin-top: 10px; font-size: 1.1em; }
+.slide.divider .wrap { padding-block: 24px; }
+.div-obj { margin-top: 18px; padding: 14px 20px; background: var(--hero-card); border-left: 5px solid var(--gold); border-radius: 0 4px 4px 0; display: grid; gap: 6px; max-width: 62ch; }
+.div-obj-lbl { font-size: 0.74em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); }
+.div-obj p { color: var(--hero-ink); font-size: 1.05em; line-height: 1.45; }
+.div-obj p strong { color: var(--gold); }
+.div-obj ul { margin: 2px 0 0; padding-left: 18px; display: grid; gap: 4px; color: var(--hero-muted); font-size: 0.95em; }
 .roadmap { list-style: none; margin: 0; padding: 0; display: grid; gap: 4px; border-left: 2px solid var(--hero-line); }
 .roadmap a { display: grid; grid-template-columns: 32px minmax(0, 1fr); gap: 12px; align-items: baseline; padding: 10px 16px; text-decoration: none; color: var(--hero-muted); font-weight: 600; margin-left: -2px; border-left: 4px solid transparent; }
 .roadmap a:hover { color: var(--hero-ink); }
@@ -465,6 +501,10 @@ section.block.slide { padding-block: 26px; }
 .tl3 ul li { display: list-item; border: 0; padding: 0; position: static; }
 .tl3 ul li::before { content: none; }
 @media (max-width: 960px) { .timeline.tl3 { grid-template-columns: minmax(0, 1fr); } }
+.tl-fig { margin: 0; display: grid; gap: 14px; }
+.tl-scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 20px 16px 12px; color: var(--ink); }
+.tl-scroll svg { display: block; width: 100%; min-width: 860px; height: auto; font-family: var(--font-body); }
+.tl-fig figcaption { color: var(--muted); font-size: 0.95em; max-width: 90ch; }
 .turn { margin-top: 12px; padding: 12px 18px; background: var(--gold-soft); border-left: 5px solid var(--gold); border-radius: 0 4px 4px 0; }
 
 /* Comparison table */
@@ -573,7 +613,8 @@ section.block.slide { padding-block: 26px; }
   #presentBtn { display: none; }
 }
 </style>
-
+</head>
+<body>
 <nav class="nav" aria-label="Sections">
   <div class="wrap">
     <a class="brand" href="#top">5 Years <span>of</span> AI</a>
@@ -653,23 +694,63 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="agenda" data-title="Learning objectives">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Learning objectives</div>
+        <div class="eyebrow">Learning objectives · Q&amp;A is built into each section</div>
         <h2>By the end of this session, you'll be able to</h2>
       </div>
-      <div class="agenda">
-        <a href="#changed"><span class="num">1</span><span class="verb">Describe</span><h3>What changed</h3><p>The major changes AI and data science tools have brought to program management over the past five years, and their effects on processes and outcomes.</p></a>
-        <a href="#adopt"><span class="num">2</span><span class="verb">Apply</span><h3>Adopting tools</h3><p>Best practices for bringing AI tools into personal workflows and office-wide processes.</p></a>
-        <a href="#accountability"><span class="num">3</span><span class="verb">Develop</span><h3>Accountability</h3><p>Clear ownership, usage expectations, and ways to measure whether a tool is delivering value.</p></a>
-        <a href="#it"><span class="num">4</span><span class="verb">Explain</span><h3>Working with IT</h3><p>Why IT relationships and technology approvals are now core program management work, and how to work well with IT and compliance.</p></a>
-      </div>
-      <p class="qa-note">Q&amp;A is built into each part. Bring questions as they come up.</p>
+      <ol class="objs">
+        <li>
+          <a class="obj-num" href="#part-1" aria-label="Go to section 1">1</a>
+          <div class="obj-body">
+            <span class="obj-sec">Introduction</span>
+            <p><strong>Define</strong> key AI and data terms in plain language, so everyone in the room shares the same vocabulary.</p>
+          </div>
+        </li>
+        <li>
+          <a class="obj-num" href="#part-2" aria-label="Go to section 2">2</a>
+          <div class="obj-body">
+            <span class="obj-sec">How AI has changed over time</span>
+            <p><strong>Describe</strong> how AI and data science tools have changed program management in research administration over the past five years, their effects on processes and outcomes, and what has stayed the same.</p>
+          </div>
+        </li>
+        <li>
+          <a class="obj-num" href="#part-3" aria-label="Go to section 3">3</a>
+          <div class="obj-body">
+            <span class="obj-sec">Using AI in your program or office</span>
+            <p><strong>Apply</strong> best practices for bringing AI tools into personal workflows and office-wide processes:</p>
+            <ul>
+              <li>Move a tool from personal experiment to office process in stages</li>
+              <li>Set clear ownership, usage expectations and measures of value</li>
+              <li>Work with IT and compliance on security reviews and technology approvals</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a class="obj-num" href="#part-4" aria-label="Go to section 4">4</a>
+          <div class="obj-body">
+            <span class="obj-sec">Program management of an AI or data program</span>
+            <p><strong>Plan</strong> and manage programs whose purpose is building AI and data tools:</p>
+            <ul>
+              <li>Explain how AI and data projects differ from typical systems projects</li>
+              <li>Guide a project from discovery through evaluation to life after the grant</li>
+              <li>Anticipate common risks and measure success beyond on time and on budget</li>
+            </ul>
+          </div>
+        </li>
+        <li>
+          <a class="obj-num" href="#part-5" aria-label="Go to section 5">5</a>
+          <div class="obj-body">
+            <span class="obj-sec">Conclusion</span>
+            <p><strong>Identify</strong> a practical next step for your office: one tool or workflow, one owner, one month.</p>
+          </div>
+        </li>
+      </ol>
     </div>
   </section>
 
   <section class="block slide" id="terms" data-title="Key terms">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Before we start</div>
+        <div class="eyebrow">Objective 1 · Define</div>
         <h2>Key terms</h2>
         <p class="lede">Plain-language definitions for words you'll hear in this session. No technical background needed.</p>
       </div>
@@ -697,52 +778,14 @@ section.block.slide { padding-block: 26px; }
     </div>
   </section>
 
-  <section class="block slide" id="timeline" data-title="Five years at a glance">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="eyebrow">What we've seen</div>
-        <h2>Five years at a glance</h2>
-        <p class="lede">Where AI stood in research administration five years ago, three years ago and today. Timing varies by institution.</p>
-      </div>
-      <ol class="timeline tl3">
-        <li>
-          <span class="yr">5 years ago</span><span class="when">around 2022</span>
-          <strong>AI was behind the scenes</strong>
-          <ul>
-            <li>AI meant specialized machine learning built by data scientists. It was a research topic, not an office tool.</li>
-            <li>Office automation was rules-based: eRA workflows, templates and spreadsheet macros.</li>
-            <li>Few offices had an AI policy, because the question rarely came up.</li>
-          </ul>
-        </li>
-        <li>
-          <span class="yr">3 years ago</span><span class="when">around 2024</span>
-          <strong>Everyone was experimenting</strong>
-          <ul>
-            <li>Staff tried chatbots like ChatGPT on their own, often with personal accounts.</li>
-            <li>Offices and sponsors asked what was allowed. NIH barred reviewers from using generative AI in peer review.</li>
-            <li>Institutions wrote first AI guidelines, and vendors began adding AI assistants to existing software.</li>
-          </ul>
-        </li>
-        <li class="now">
-          <span class="yr">Now</span><span class="when">2027</span>
-          <strong>AI is infrastructure</strong>
-          <ul>
-            <li>AI is built into project management platforms and eRA systems.</li>
-            <li>Institutions host their own AI platforms, and staff build working tools with AI help.</li>
-            <li>Sponsors set expectations, such as NIH limits on AI-generated applications. The questions are about ownership, accountability, approvals and value.</li>
-          </ul>
-        </li>
-      </ol>
-      <p class="turn"><strong>The turning point:</strong> ChatGPT's public release in late 2022 put generative AI in front of everyone at once.</p>
-    </div>
-  </section>
 
   <section class="block slide" id="changed" data-title="What changed">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Objective 1 · Describe</div>
-        <h2>What changed in three years</h2>
-        <p class="lede">The next six slides each compare where research administration offices were about three years ago with where they are now, and the effect on how programs are planned and run. To present them one line at a time, switch on "Reveal one at a time" and click each hidden "Now" line.</p>
+        <div class="eyebrow">Objective 2 · Describe</div>
+        <h2>What changed in five years</h2>
+        <p class="lede">The next six slides each show where research administration offices were five years ago, three years ago and now, and the effect on how programs are planned and run. To present them one step at a time, switch on "Reveal one at a time" and click each hidden "Now" panel.</p>
+        <p class="turn"><strong>The turning point:</strong> ChatGPT's public release in late 2022 put generative AI in front of everyone at once. It falls between "5 years ago" and "3 years ago."</p>
       </div>
       <div class="shift-bar">
         <div class="seg" role="group" aria-label="Reveal mode">
@@ -775,6 +818,86 @@ section.block.slide { padding-block: 26px; }
     </div>
   </section>
 
+  <section class="block slide" id="overview" data-title="Five years at a glance">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Objective 2 · Overview</div>
+        <h2>Five years at a glance</h2>
+      </div>
+      <figure class="tl-fig">
+        <div class="tl-scroll">
+          <svg viewBox="0 0 1100 320" role="img" aria-label="Timeline from 2022 to 2027. Generative AI arrived with ChatGPT's public release in November 2022. Key events: NIH bars generative AI in peer review (June 2023), AI assistants added to project management tools (2023 to 2024), universities launch hosted AI platforms (2024 to 2025), NIH limits AI-generated applications (July 2025), staff build working tools with AI help (2025 to 2026). Snapshots: five years ago, AI behind the scenes; three years ago, everyone experimenting; now, AI is infrastructure.">
+            <!-- Axis: gray before generative AI, gold after -->
+            <line x1="40" y1="200" x2="1060" y2="200" stroke="currentColor" stroke-opacity="0.3" stroke-width="3"/>
+            <line x1="231" y1="200" x2="1060" y2="200" stroke="#F1B300" stroke-width="6"/>
+            <!-- Year ticks -->
+            <g fill="currentColor" fill-opacity="0.6" font-size="13" font-weight="700" text-anchor="middle">
+              <line x1="60" y1="194" x2="60" y2="206" stroke="currentColor" stroke-opacity="0.4"/><text x="60" y="224">2022</text>
+              <line x1="250" y1="194" x2="250" y2="206" stroke="currentColor" stroke-opacity="0.4"/><text x="250" y="224">2023</text>
+              <line x1="440" y1="194" x2="440" y2="206" stroke="currentColor" stroke-opacity="0.4"/><text x="440" y="224">2024</text>
+              <line x1="630" y1="194" x2="630" y2="206" stroke="currentColor" stroke-opacity="0.4"/><text x="630" y="224">2025</text>
+              <line x1="820" y1="194" x2="820" y2="206" stroke="currentColor" stroke-opacity="0.4"/><text x="820" y="224">2026</text>
+              <line x1="1010" y1="194" x2="1010" y2="206" stroke="currentColor" stroke-opacity="0.4"/><text x="1010" y="224">2027</text>
+            </g>
+            <!-- Events above the line (two staggered rows) -->
+            <g fill="currentColor" font-size="14.5" text-anchor="middle">
+              <line x1="231" y1="74" x2="231" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
+              <circle cx="231" cy="200" r="7" fill="#F1B300" stroke="currentColor" stroke-width="2"/>
+              <text x="231" y="30" font-weight="800">Nov 2022 · Turning point</text>
+              <text x="231" y="48" font-weight="700">ChatGPT released</text><text x="231" y="65" font-weight="700">to the public</text>
+
+              <line x1="336" y1="154" x2="336" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
+              <circle cx="336" cy="200" r="5"/>
+              <text x="336" y="110" font-weight="800" fill-opacity="0.65">Jun 2023</text>
+              <text x="336" y="128">NIH bars generative AI</text><text x="336" y="145">in peer review</text>
+
+              <line x1="440" y1="74" x2="440" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
+              <circle cx="440" cy="200" r="5"/>
+              <text x="440" y="30" font-weight="800" fill-opacity="0.65">2023–24</text>
+              <text x="440" y="48">AI assistants added to</text><text x="440" y="65">project management tools</text>
+
+              <line x1="592" y1="154" x2="592" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
+              <circle cx="592" cy="200" r="5"/>
+              <text x="592" y="110" font-weight="800" fill-opacity="0.65">2024–25</text>
+              <text x="592" y="128">Universities launch</text><text x="592" y="145">hosted AI platforms</text>
+
+              <line x1="735" y1="74" x2="735" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
+              <circle cx="735" cy="200" r="5"/>
+              <text x="735" y="30" font-weight="800" fill-opacity="0.65">Jul 2025</text>
+              <text x="735" y="48">NIH limits AI-generated</text><text x="735" y="65">applications</text>
+
+              <line x1="845" y1="154" x2="845" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
+              <circle cx="845" cy="200" r="5"/>
+              <text x="845" y="110" font-weight="800" fill-opacity="0.65">2025–26</text>
+              <text x="845" y="128">Staff build working</text><text x="845" y="145">tools with AI help</text>
+            </g>
+            <!-- Snapshots below the line: the three columns used on the "What changed" cards -->
+            <g fill="currentColor" font-size="13">
+              <circle cx="98" cy="200" r="11" style="fill:var(--bg)" stroke="currentColor" stroke-width="3"/>
+              <line x1="98" y1="211" x2="98" y2="240" stroke="currentColor" stroke-opacity="0.35"/>
+              <text x="86" y="258" font-size="12" font-weight="800" letter-spacing="1.5">5 YEARS AGO</text>
+              <text x="86" y="276" fill-opacity="0.6">around 2022</text>
+              <text x="86" y="298" font-size="18" font-weight="800">AI behind the scenes</text>
+
+              <circle cx="478" cy="200" r="11" style="fill:var(--bg)" stroke="currentColor" stroke-width="3"/>
+              <line x1="478" y1="211" x2="478" y2="240" stroke="currentColor" stroke-opacity="0.35"/>
+              <text x="478" y="258" font-size="12" font-weight="800" letter-spacing="1.5" text-anchor="middle">3 YEARS AGO</text>
+              <text x="478" y="276" fill-opacity="0.6" text-anchor="middle">around 2024</text>
+              <text x="478" y="298" font-size="18" font-weight="800" text-anchor="middle">Everyone experimenting</text>
+
+              <circle cx="1048" cy="200" r="13" fill="#F1B300" stroke="currentColor" stroke-width="3"/>
+              <line x1="1048" y1="213" x2="1048" y2="240" stroke="currentColor" stroke-opacity="0.35"/>
+              <text x="1060" y="258" font-size="12" font-weight="800" letter-spacing="1.5" text-anchor="end">NOW</text>
+              <text x="1060" y="276" fill-opacity="0.6" text-anchor="end">2027</text>
+              <text x="1060" y="298" font-size="18" font-weight="800" text-anchor="end">AI is infrastructure</text>
+            </g>
+          </svg>
+        </div>
+        <figcaption>Generative AI arrived in late 2022, shown by the gold line. Key events sit above the line. The three snapshots below it are the columns on each "What changed" slide.</figcaption>
+      </figure>
+    </div>
+  </section>
+
   <section class="slide divider" id="part-3" data-n="3" data-title="Using AI in your program or office">
     <div class="wrap div-grid">
       <div class="div-main"><span class="div-num">3</span><h2>Using AI in your program or office</h2><p class="div-sub">Bringing AI tools into personal workflows and office processes, with clear ownership and IT as a partner.</p></div>
@@ -785,7 +908,7 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="adopt" data-title="Adopting tools">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Objectives 2 &amp; 4 · Apply and explain</div>
+        <div class="eyebrow">Objective 3 · Apply</div>
         <h2>From a personal workflow to an office process</h2>
         <p class="lede">Adopting a tool happens in stages, and IT is involved at each one. The next five slides take one stage each: what good practice looks like, what to ask, and what to watch for.</p>
       </div>
@@ -796,7 +919,7 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="accountability" data-title="Accountability card">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Objective 3 · Develop</div>
+        <div class="eyebrow">Objective 3 · Apply</div>
         <h2>Build an accountability card for one tool</h2>
         <p class="lede">Most adoption problems trace back to a missing answer to one of these questions. Fill them in for a tool your office uses or is considering, then copy the card into your project notes.</p>
       </div>
@@ -867,7 +990,7 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="ai-different" data-title="What's different">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Section 4</div>
+        <div class="eyebrow">Objective 4 · Plan</div>
         <h2>AI and data projects aren't like other projects</h2>
         <p class="lede">Many familiar project management habits still apply. These are the places where they need to change.</p>
       </div>
@@ -890,7 +1013,7 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="ai-lifecycle" data-title="Project lifecycle">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Section 4</div>
+        <div class="eyebrow">Objective 4 · Plan</div>
         <h2>The AI and data project lifecycle</h2>
         <p class="lede">Pick a stage to see where the program manager should focus. The stages overlap and repeat; most projects loop through Build and Evaluate many times.</p>
       </div>
@@ -903,7 +1026,7 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="ai-risks" data-title="Risks to plan for">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Section 4</div>
+        <div class="eyebrow">Objective 4 · Plan</div>
         <h2>Risks to plan for</h2>
         <p class="lede">The risks that most often stall AI and data projects. Pick one to see the warning signs and how to reduce it.</p>
       </div>
@@ -917,7 +1040,7 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="ai-measures" data-title="Measuring success">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Section 4</div>
+        <div class="eyebrow">Objective 4 · Plan</div>
         <h2>Measuring success beyond on time and on budget</h2>
         <p class="lede">Funders want outputs, such as tools, code and papers. They increasingly want outcomes too: who uses the tool, and what changed.</p>
       </div>
@@ -935,7 +1058,7 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="scenarios-3" data-title="Scenarios E and F">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Section 4 · Activity</div>
+        <div class="eyebrow">Objective 4 · Activity</div>
         <h2>What would you do as program manager?</h2>
         <p class="lede">Two cases from programs that build AI and data tools.</p>
       </div>
@@ -1088,7 +1211,7 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="ai-team" data-title="The team">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Section 4</div>
+        <div class="eyebrow">Objective 4 · Plan</div>
         <h2>Who's on the team, and what the program manager does with each</h2>
       </div>
       <div class="roles">
@@ -1108,7 +1231,7 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="ai-ready" data-title="Readiness checklist">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Section 4 · Activity</div>
+        <div class="eyebrow">Objective 4 · Activity</div>
         <h2>Before you start an AI or data project</h2>
         <p class="lede">Check what's true for a project you're planning. Your answers stay in this browser.</p>
       </div>
@@ -1211,27 +1334,33 @@ section.block.slide { padding-block: 26px; }
   /* ---------- Objective 1: shifts ---------- */
   const SHIFTS = [
     { t: "AI in everyday tools", tag: "Where AI lives",
-      then: "A separate chatbot in a browser tab, tried out by a few curious staff.",
+      five: "AI lived in specialized research tools built by data scientists, not in the software offices used every day.",
+      three: "A separate chatbot in a browser tab, tried out by a few curious staff.",
       now: "Built into the project management platforms offices already use, such as ClickUp and Monday, and showing up in eRA systems.",
       ra: "AI features can arrive through a vendor update, not a decision your office made. Program managers now need to know which features are on, whether they touch draft proposals, budgets or sponsor-confidential material, and whether anyone has reviewed them." },
     { t: "Institutional platforms", tag: "Who provides it",
-      then: "Individual staff using personal or free consumer accounts.",
+      five: "Nothing to provide. Institutions licensed eRA, email and office software, but no AI tools.",
+      three: "Individual staff using personal or free consumer accounts.",
       now: "Institutions deploying their own hosted AI platforms with approved data uses.",
       ra: "The question shifts from 'Can I use AI?' to 'Which approved tool fits this task and this data?' Summarizing a public funding announcement is different from working with a PI's unpublished specific aims or a budget with salary data. Offices need to steer work toward the sanctioned platform and know its limits." },
     { t: "Who builds tools", tag: "Who makes things",
-      then: "Custom tools came from IT or a developer, after a request and a queue.",
+      five: "Custom tools came from IT or a developer, after a request and a long queue. Staff built spreadsheets and macros.",
+      three: "Early adopters used chatbots to write spreadsheet formulas and short scripts, but most tools still came from IT.",
       now: "Staff with little programming background build working tools with AI assistance, such as deadline trackers and proposal intake forms.",
       ra: "This is a big capacity gain and a new risk. A tool one person built can become something the whole office depends on during a deadline crunch, with no owner, documentation or security review." },
     { t: "How work moves", tag: "Process",
-      then: "Proposal intake by email, deadline calendars kept by hand, checklists rebuilt for every solicitation.",
+      five: "Proposal intake by email, deadline calendars kept by hand, checklists rebuilt for every solicitation.",
+      three: "The same manual process, with individuals quietly using chatbots to draft emails and summarize solicitations.",
       now: "AI-drafted solicitation summaries, automated intake and generated status updates for PIs and department chairs.",
       ra: "Faster isn't automatically better. Processes need to be redesigned on purpose, with clear points where a person checks the output before it reaches a PI or goes to a sponsor. An AI summary that misses a page limit or an eligibility rule can sink a proposal." },
     { t: "Accountability", tag: "Who answers for it",
-      then: "IT owned the tool. The office owned the work.",
+      five: "IT owned the tools. The office owned the work.",
+      three: "AI use was a personal choice, often invisible to managers. Nobody owned it.",
       now: "Program managers answer for whether tools are adopted, used well and delivering value.",
       ra: "Buying licenses is not adoption. Someone has to set usage expectations, track whether people use the tool, and decide whether it's worth keeping." },
     { t: "Working with IT", tag: "The relationship",
-      then: "An occasional help desk ticket.",
+      five: "An occasional help desk ticket.",
+      three: "IT and security issued warnings and early AI guidance, often after staff were already using the tools.",
       now: "An ongoing partnership. Security reviews and approvals sit on the critical path of most projects.",
       ra: "Managing the IT relationship is now program management work. Bring IT and compliance in early, plan for review time in the schedule, and build trust before you need a fast answer." }
   ];
@@ -1244,7 +1373,8 @@ section.block.slide { padding-block: 26px; }
         <h2>${esc(s.t)}</h2>
       </div>
       <div class="shift-big">
-        <div class="tcol then"><span class="lbl">About three years ago</span><p>${esc(s.then)}</p></div>
+        <div class="tcol then five"><span class="lbl">5 years ago</span><p>${esc(s.five)}</p></div>
+        <div class="tcol then three"><span class="lbl">3 years ago</span><p>${esc(s.three)}</p></div>
         <div class="tcol now"><span class="lbl">Now</span><p class="now-txt" tabindex="-1">${esc(s.now)}</p></div>
       </div>
       <div class="effect"><span class="lbl">Effect on processes and outcomes</span><p>${esc(s.ra)}</p></div>
@@ -1615,8 +1745,16 @@ section.block.slide { padding-block: 26px; }
     { t: "Take-home materials", s: "Take-home" }
   ];
   const MAIN_PARTS = 5;
+  const objItems = document.querySelectorAll(".objs > li");
   document.querySelectorAll(".divider").forEach(d => {
     const n = +d.dataset.n, rm = d.querySelector(".roadmap");
+    // Show this section's learning objective, copied from the objectives slide
+    const o = objItems[n - 1];
+    if (o) {
+      const p = o.querySelector(".obj-body p"), ul = o.querySelector(".obj-body ul");
+      d.querySelector(".div-main").insertAdjacentHTML("beforeend",
+        `<div class="div-obj"><span class="div-obj-lbl">Learning objective ${n}</span>${p ? p.outerHTML : ""}${ul ? ul.outerHTML : ""}</div>`);
+    }
     if (!rm) return;
     rm.innerHTML = PARTS.slice(0, MAIN_PARTS).map((p, i) =>
       `<li class="${i + 1 === n ? "cur" : i + 1 < n ? "past" : ""}"><a href="#part-${i + 1}"><span class="rn">${i + 1}</span><span>${esc(p.t)}</span></a></li>`).join("");
@@ -1722,3 +1860,5 @@ section.block.slide { padding-block: 26px; }
   go(start && start.closest(".slide") ? slides.indexOf(start.closest(".slide")) : 0, { focus: false });
 })();
 </script>
+</body>
+</html>

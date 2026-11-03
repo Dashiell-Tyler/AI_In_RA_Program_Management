@@ -14,18 +14,18 @@ It's published as a Claude artifact at https://claude.ai/artifact/W3RTYoZGhRE2NR
 
 ### Sections and timing (60-minute session)
 
-The live talk is 36 slides and about 43 minutes, which leaves about 15 minutes for questions.
+The live talk is 36 slides and about 44 minutes, which leaves about 15 minutes for questions.
 
 | # | Section | Slides | Target time |
 |---|---|---|---|
 | 1 | **Introduction**: title, presenters, learning objectives, key terms | 5 | 5 min |
-| 2 | **How AI has changed over time**: timeline, six shifts (one slide each, about 1 min each), what stayed the same | 10 | 10 min |
+| 2 | **How AI has changed over time**: what changed in five years (six slides, each comparing 5 years ago, 3 years ago and now; about 1.5 min each), what stayed the same, five-year timeline overview | 10 | 11 min |
 | 3 | **Using AI in your program or office**: adoption stages (overview plus five stage slides), accountability card, scenarios A–B, role paths | 10 | 13 min |
 | 4 | **Program management of an AI or data program**: what's different, project lifecycle, risks, measuring success, scenarios E–F | 6 | 12 min |
 | 5 | **Conclusion**: key takeaways, resources, feedback survey | 4 | 3 min |
 | | **Thank you / Questions** (closing slide; leave the survey QR code up) | 1 | ~15 min |
 
-To stay on time, run each scenario slide as a quick show of hands (about 3 minutes), and give each "What changed" and adoption-stage slide about a minute.
+To stay on time, run each scenario slide as a quick show of hands (about 3 minutes), and give each "What changed" slide about a minute and a half and each adoption-stage slide about a minute.
 
 ### Take-home materials (not presented live)
 
