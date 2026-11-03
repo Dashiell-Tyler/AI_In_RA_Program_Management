@@ -1,6 +1,6 @@
 # AI_In_RA_Program_Management
 
-**Three Years of AI: What Changed in Program Management for Research Administration and What It Means for Your Office**
+**5 Years of AI: What Changed in Program Management for Research Administration and What It Means for Your Office**
 
 Interactive slide presentation for a concurrent session at the NCURA 21st Pre-Award Research Administration Conference (PRA), March 18–19, 2027, New Orleans, LA.
 
@@ -12,13 +12,31 @@ Everything is in one self-contained file, [`index.html`](index.html). It has no 
 
 It's published as a Claude artifact at https://claude.ai/artifact/W3RTYoZGhRE2NRL9FGeab6 (private until shared from the page's Share menu).
 
-### Sections
+### Sections and timing (60-minute session)
 
-1. **Introduction**: presenters, learning objectives, key terms
-2. **How AI has changed over time**: timeline, six shifts (one slide each), what stayed the same
-3. **Using AI in your program or office**: adoption stages, accountability card, scenarios A–D, office self-check, role paths
-4. **Program management of an AI or data program**: what's different, project lifecycle, team roles, risks, measuring success, readiness checklist, scenarios E–F
-5. **Conclusion**: key takeaways, 30-day plan, resources, feedback survey, references, thank you and questions
+The live talk is 36 slides and about 43 minutes, which leaves about 15 minutes for questions.
+
+| # | Section | Slides | Target time |
+|---|---|---|---|
+| 1 | **Introduction**: title, presenters, learning objectives, key terms | 5 | 5 min |
+| 2 | **How AI has changed over time**: timeline, six shifts (one slide each, about 1 min each), what stayed the same | 10 | 10 min |
+| 3 | **Using AI in your program or office**: adoption stages (overview plus five stage slides), accountability card, scenarios A–B, role paths | 10 | 13 min |
+| 4 | **Program management of an AI or data program**: what's different, project lifecycle, risks, measuring success, scenarios E–F | 6 | 12 min |
+| 5 | **Conclusion**: key takeaways, resources, feedback survey | 4 | 3 min |
+| | **Thank you / Questions** (closing slide; leave the survey QR code up) | 1 | ~15 min |
+
+To stay on time, run each scenario slide as a quick show of hands (about 3 minutes), and give each "What changed" and adoption-stage slide about a minute.
+
+### Take-home materials (not presented live)
+
+These slides come after the closing slide, so attendees can use them later from the shared link:
+
+- Office readiness self-check and results
+- Scenarios C and D
+- AI and data project team roles
+- Before you start an AI or data project (readiness checklist)
+- The 30-day plan
+- Policies and references
 
 ### Presenting
 

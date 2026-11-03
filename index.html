@@ -1,4 +1,4 @@
-<title>Three Years of AI</title>
+<title>5 Years of AI</title>
 <meta name="claude:viewport-fit-sides" content="cover">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -423,6 +423,13 @@ section.block.slide { padding-block: 26px; }
 }
 @media (max-width: 640px) { .qs { grid-template-columns: minmax(0, 1fr); } }
 
+/* Take-home section */
+.th-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.th-list a { display: block; padding: 12px 16px; border: 1px solid var(--hero-line); border-left: 4px solid var(--gold); border-radius: 4px; color: var(--hero-ink); text-decoration: none; font-weight: 600; background: var(--hero-card); }
+.th-list a:hover { color: var(--gold); }
+.nav-links a.nav-th { color: var(--gold); }
+.close-th { margin-top: 10px; color: var(--hero-muted); font-size: 0.9em; }
+
 /* Section dividers */
 .slide.divider, .slide.closing { background: var(--hero-bg); color: var(--hero-ink); border-bottom: 6px solid var(--gold); }
 .slide.divider .wrap, .slide.closing .wrap { padding-block: 40px; }
@@ -447,6 +454,18 @@ section.block.slide { padding-block: 26px; }
 .timeline .yr { font-weight: 900; font-size: 1.5em; color: var(--accent); line-height: 1; }
 .timeline strong { font-size: 1.1em; }
 .timeline p { color: var(--muted); font-size: 0.95em; }
+
+.timeline.tl3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.tl3 > li { padding-right: 28px; gap: 6px; }
+.tl3 .yr { font-size: 1.7em; }
+.tl3 .when { font-size: 0.8em; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); }
+.tl3 strong { font-size: 1.25em; margin-top: 4px; }
+.tl3 ul { margin: 4px 0 0; padding-left: 18px; display: grid; gap: 6px; color: var(--muted); font-size: 0.95em; }
+.tl3 > li.now ul { color: var(--ink); }
+.tl3 ul li { display: list-item; border: 0; padding: 0; position: static; }
+.tl3 ul li::before { content: none; }
+@media (max-width: 960px) { .timeline.tl3 { grid-template-columns: minmax(0, 1fr); } }
+.turn { margin-top: 12px; padding: 12px 18px; background: var(--gold-soft); border-left: 5px solid var(--gold); border-radius: 0 4px 4px 0; }
 
 /* Comparison table */
 .cmp-wrap { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; }
@@ -557,13 +576,14 @@ section.block.slide { padding-block: 26px; }
 
 <nav class="nav" aria-label="Sections">
   <div class="wrap">
-    <a class="brand" href="#top">3 Years <span>of</span> AI</a>
+    <a class="brand" href="#top">5 Years <span>of</span> AI</a>
     <div class="nav-links">
       <a href="#part-1" data-sec="1">1 Introduction</a>
       <a href="#part-2" data-sec="2">2 How AI changed</a>
-      <a href="#part-3" data-sec="3">3 Using AI in your office</a>
-      <a href="#part-4" data-sec="4">4 Managing AI &amp; data programs</a>
+      <a href="#part-3" data-sec="3">3 Using AI</a>
+      <a href="#part-4" data-sec="4">4 Managing AI programs</a>
       <a href="#part-5" data-sec="5">5 Conclusion</a>
+      <a href="#part-6" data-sec="6" class="nav-th">+ Take-home</a>
     </div>
     <button class="tool-btn" id="presentBtn" aria-pressed="false" title="Larger text for projecting">Large text</button>
     <button class="tool-btn" id="fsBtn" aria-pressed="false" title="Full screen (F)">Full screen</button>
@@ -574,9 +594,9 @@ section.block.slide { padding-block: 26px; }
   <div class="wrap hero-grid">
     <div>
       <div class="eyebrow">NCURA PRA 2027 · Concurrent session · AI/Data/ERA/Systems</div>
-      <h1>Three Years of AI</h1>
+      <h1>5 Years of AI</h1>
       <p class="sub"><strong>What changed in program management for research administration</strong>, and what it means for your office.</p>
-      <p class="blurb lede">In about three years, AI and data science tools went from novelty to everyday infrastructure in research administration. Project management platforms ship with AI assistants, institutions host their own AI platforms, and staff with little programming background build working tools. This page walks through what changed, what didn't, and how to manage it in a pre-award office, from solicitation review to submission.</p>
+      <p class="blurb lede">In about five years, AI and data science tools went from a specialist research topic to everyday infrastructure in research administration. Project management platforms ship with AI assistants, institutions host their own AI platforms, and staff with little programming background build working tools. This page walks through what changed, what didn't, and how to manage it in a pre-award office, from solicitation review to submission.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#part-1">Start the session</a>
         <a class="btn btn-ghost" href="#accountability">Build an accountability card</a>
@@ -637,7 +657,7 @@ section.block.slide { padding-block: 26px; }
         <h2>By the end of this session, you'll be able to</h2>
       </div>
       <div class="agenda">
-        <a href="#changed"><span class="num">1</span><span class="verb">Describe</span><h3>What changed</h3><p>The major changes AI and data science tools have brought to program management over three years, and their effects on processes and outcomes.</p></a>
+        <a href="#changed"><span class="num">1</span><span class="verb">Describe</span><h3>What changed</h3><p>The major changes AI and data science tools have brought to program management over the past five years, and their effects on processes and outcomes.</p></a>
         <a href="#adopt"><span class="num">2</span><span class="verb">Apply</span><h3>Adopting tools</h3><p>Best practices for bringing AI tools into personal workflows and office-wide processes.</p></a>
         <a href="#accountability"><span class="num">3</span><span class="verb">Develop</span><h3>Accountability</h3><p>Clear ownership, usage expectations, and ways to measure whether a tool is delivering value.</p></a>
         <a href="#it"><span class="num">4</span><span class="verb">Explain</span><h3>Working with IT</h3><p>Why IT relationships and technology approvals are now core program management work, and how to work well with IT and compliance.</p></a>
@@ -672,25 +692,48 @@ section.block.slide { padding-block: 26px; }
 
   <section class="slide divider" id="part-2" data-n="2" data-title="How AI has changed over time">
     <div class="wrap div-grid">
-      <div class="div-main"><span class="div-num">2</span><h2>How AI has changed over time</h2><p class="div-sub">About three years from novelty to everyday infrastructure, and what stayed the same.</p></div>
+      <div class="div-main"><span class="div-num">2</span><h2>How AI has changed over time</h2><p class="div-sub">Five years from a specialist research topic to everyday infrastructure, and what stayed the same.</p></div>
       <ol class="roadmap"></ol>
     </div>
   </section>
 
-  <section class="block slide" id="timeline" data-title="Three years at a glance">
+  <section class="block slide" id="timeline" data-title="Five years at a glance">
     <div class="wrap">
       <div class="sec-head">
         <div class="eyebrow">What we've seen</div>
-        <h2>Three years at a glance</h2>
-        <p class="lede">A rough sketch of how AI showed up in research administration. Timing varies by institution.</p>
+        <h2>Five years at a glance</h2>
+        <p class="lede">Where AI stood in research administration five years ago, three years ago and today. Timing varies by institution.</p>
       </div>
-      <ol class="timeline">
-        <li><span class="yr">Late 2022</span><strong>Chatbots go public</strong><p>ChatGPT's public release puts generative AI in front of everyone at once.</p></li>
-        <li><span class="yr">2023</span><strong>Experimentation</strong><p>Staff try chatbots on their own. Offices ask whether AI is allowed at all. NIH bars reviewers from using generative AI in peer review.</p></li>
-        <li><span class="yr">2024</span><strong>AI moves into existing software</strong><p>Project management and productivity platforms add built-in assistants. Institutions publish their first AI guidelines.</p></li>
-        <li><span class="yr">2025</span><strong>Institutions build and host</strong><p>Universities offer their own AI platforms. Staff build working tools with AI help. NIH sets limits on AI-generated applications.</p></li>
-        <li class="now"><span class="yr">Now</span><strong>AI is infrastructure</strong><p>The questions are about ownership, accountability, approvals and whether tools deliver value.</p></li>
+      <ol class="timeline tl3">
+        <li>
+          <span class="yr">5 years ago</span><span class="when">around 2022</span>
+          <strong>AI was behind the scenes</strong>
+          <ul>
+            <li>AI meant specialized machine learning built by data scientists. It was a research topic, not an office tool.</li>
+            <li>Office automation was rules-based: eRA workflows, templates and spreadsheet macros.</li>
+            <li>Few offices had an AI policy, because the question rarely came up.</li>
+          </ul>
+        </li>
+        <li>
+          <span class="yr">3 years ago</span><span class="when">around 2024</span>
+          <strong>Everyone was experimenting</strong>
+          <ul>
+            <li>Staff tried chatbots like ChatGPT on their own, often with personal accounts.</li>
+            <li>Offices and sponsors asked what was allowed. NIH barred reviewers from using generative AI in peer review.</li>
+            <li>Institutions wrote first AI guidelines, and vendors began adding AI assistants to existing software.</li>
+          </ul>
+        </li>
+        <li class="now">
+          <span class="yr">Now</span><span class="when">2027</span>
+          <strong>AI is infrastructure</strong>
+          <ul>
+            <li>AI is built into project management platforms and eRA systems.</li>
+            <li>Institutions host their own AI platforms, and staff build working tools with AI help.</li>
+            <li>Sponsors set expectations, such as NIH limits on AI-generated applications. The questions are about ownership, accountability, approvals and value.</li>
+          </ul>
+        </li>
       </ol>
+      <p class="turn"><strong>The turning point:</strong> ChatGPT's public release in late 2022 put generative AI in front of everyone at once.</p>
     </div>
   </section>
 
@@ -799,49 +842,8 @@ section.block.slide { padding-block: 26px; }
     </div>
   </section>
 
-  <section class="block slide" id="scenarios-2" data-title="Scenarios C and D">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="eyebrow">Activity, continued</div>
-        <h2>What would your office do?</h2>
-      </div>
-      <div class="scen-grid" id="scen2"></div>
-    </div>
-  </section>
 
-  <section class="block slide" id="selfcheck" data-title="Readiness self-check">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="eyebrow">Activity</div>
-        <h2>Office readiness self-check</h2>
-        <p class="lede">Rate where your office is today on each item. Your score and where to start are on the next slide. Answers stay in this browser.</p>
-      </div>
-      <div class="qs" id="qs"></div>
-    </div>
-  </section>
 
-  <section class="block slide" id="selfcheck-results" data-title="Self-check results">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="eyebrow">Activity</div>
-        <h2>Your self-check results</h2>
-      </div>
-      <div class="result result-wide" aria-live="polite">
-        <div class="rw-score">
-          <div class="eyebrow">Your readiness</div>
-          <div class="score-big" id="score">0<small>/100</small></div>
-          <div><span class="band low" id="band">Answer to see your band</span></div>
-          <p id="bandText" style="color:var(--muted);font-size:.95em">Rate each item on the previous slide. The bars fill in as you go.</p>
-          <button type="button" class="linkish" id="resetCheck">Clear my answers</button>
-        </div>
-        <div class="bars" id="bars"></div>
-        <div class="start-here">
-          <strong>Start here</strong>
-          <ul id="startHere"><li>Your three lowest items will show up here.</li></ul>
-        </div>
-      </div>
-    </div>
-  </section>
 
   <section class="block slide" id="office" data-title="Your role">
     <div class="wrap">
@@ -897,24 +899,6 @@ section.block.slide { padding-block: 26px; }
     </div>
   </section>
 
-  <section class="block slide" id="ai-team" data-title="The team">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="eyebrow">Section 4</div>
-        <h2>Who's on the team, and what the program manager does with each</h2>
-      </div>
-      <div class="roles">
-        <div class="role"><strong>Research administrators</strong><span class="r-what">Users and subject experts</span><p>Bring them in from discovery through evaluation, and protect their time to take part.</p></div>
-        <div class="role"><strong>Developers and data scientists</strong><span class="r-what">Build the tool</span><p>Turn user needs into clear priorities, and shield them from constant scope changes.</p></div>
-        <div class="role"><strong>Research software engineers</strong><span class="r-what">Make it last</span><p>Plan for prototypes to become maintainable, documented software.</p></div>
-        <div class="role"><strong>Data owners and stewards</strong><span class="r-what">Control the inputs</span><p>Identify them early and start access approvals at kickoff.</p></div>
-        <div class="role"><strong>IT, security and compliance</strong><span class="r-what">Approve and host</span><p>Treat them as partners and put their reviews in the schedule.</p></div>
-        <div class="role"><strong>Evaluators</strong><span class="r-what">Measure results</span><p>Agree on measures early and make data available for evaluation.</p></div>
-        <div class="role"><strong>Partner institutions</strong><span class="r-what">Share the work</span><p>Align timelines, agreements and communication across sites.</p></div>
-        <div class="role"><strong>Leadership and sponsors</strong><span class="r-what">Fund and champion</span><p>Report outcomes, such as who uses the tool and what changed, not only outputs.</p></div>
-      </div>
-    </div>
-  </section>
 
   <section class="block slide" id="ai-risks" data-title="Risks to plan for">
     <div class="wrap">
@@ -947,24 +931,6 @@ section.block.slide { padding-block: 26px; }
     </div>
   </section>
 
-  <section class="block slide" id="ai-ready" data-title="Readiness checklist">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="eyebrow">Section 4 · Activity</div>
-        <h2>Before you start an AI or data project</h2>
-        <p class="lede">Check what's true for a project you're planning. Your answers stay in this browser.</p>
-      </div>
-      <div class="ready">
-        <div class="ready-list" id="readyList"></div>
-        <aside class="ready-out" aria-live="polite">
-          <div class="score-big" id="readyCount">0<small> of 8</small></div>
-          <div class="bar-track"><div class="bar-fill" id="readyFill" style="width:0%"></div></div>
-          <p id="readyMsg"></p>
-          <button type="button" class="linkish" id="readyReset">Uncheck all</button>
-        </aside>
-      </div>
-    </div>
-  </section>
 
   <section class="block slide" id="scenarios-3" data-title="Scenarios E and F">
     <div class="wrap">
@@ -991,32 +957,15 @@ section.block.slide { padding-block: 26px; }
         <h2>Key takeaways</h2>
       </div>
       <div class="takeaways">
-        <div class="take"><span class="from">From section 2</span><p>AI went from novelty to infrastructure in about three years. The hard parts are still people and process.</p></div>
+        <div class="take"><span class="from">From section 2</span><p>AI went from a specialist research topic to everyday infrastructure in about five years. The hard parts are still people and process.</p></div>
         <div class="take"><span class="from">From section 3</span><p>Buying a tool isn't adopting it. Name an owner, set expectations and measure value.</p></div>
         <div class="take"><span class="from">From section 3</span><p>IT and compliance are partners, not a final checkpoint. Bring them in early.</p></div>
         <div class="take"><span class="from">From section 4</span><p>Programs that build AI and data tools start with users and data, evaluate honestly, and plan for life after the grant.</p></div>
-        <div class="take wide"><span class="from">Your next step</span><p>Start small: one tool or workflow, one owner, one month.</p></div>
+        <div class="take wide"><span class="from">Your next step</span><p>Start small: one tool or workflow, one owner, one month. The 30-day plan is in the take-home materials.</p></div>
       </div>
     </div>
   </section>
 
-  <section class="block slide" id="plan" data-title="30-day plan">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="eyebrow">After the session</div>
-        <h2>The 30-day plan</h2>
-        <p class="lede">One tool, one owner, one month. Check items off as you go; your progress stays in this browser.</p>
-      </div>
-      <div class="plan-top">
-        <div class="progress">
-          <div style="display:flex;justify-content:space-between"><strong>Progress</strong><span class="mono" id="planCount">0 of 0</span></div>
-          <div class="bar-track"><div class="bar-fill" id="planFill" style="width:0%"></div></div>
-        </div>
-        <button type="button" class="linkish" id="resetPlan">Uncheck all</button>
-      </div>
-      <div class="weeks" id="weeks"></div>
-    </div>
-  </section>
 
   <section class="block slide" id="resources" data-title="Resources">
     <div class="wrap">
@@ -1056,6 +1005,145 @@ section.block.slide { padding-block: 26px; }
     </div>
   </section>
 
+
+  <section class="slide closing" id="thanks" data-title="Thank you">
+    <div class="wrap close-grid">
+      <div>
+        <div class="eyebrow">NCURA PRA 2027 · #NCURAPRA</div>
+        <h2 class="close-title">Thank you.<br><span>Questions?</span></h2>
+        <div class="close-names">
+          <div><strong>Dashiell Tyler</strong><span>Program Manager, AI4RA</span></div>
+          <div><strong>Colin Addington</strong><span>Senior Program Manager, IIDS</span></div>
+        </div>
+        <p class="close-links">ai4ra.uidaho.edu · iids.uidaho.edu</p>
+        <p class="close-th">Take-home materials follow this slide: the self-check, 30-day plan, project readiness checklist and more.</p>
+      </div>
+      <div class="close-qr">
+        <button type="button" class="qr-box" id="qrOpen3" aria-label="Show the survey QR code full screen"><img id="thanksQR" alt="QR code for the AI4RA external evaluation survey" width="230" height="252"></button>
+        <p>AI4RA external evaluation survey</p>
+      </div>
+    </div>
+  </section>
+  <section class="slide divider takehome" id="part-6" data-n="6" data-title="Take-home materials">
+    <div class="wrap div-grid">
+      <div class="div-main"><span class="div-num">+</span><h2>Take-home materials</h2><p class="div-sub">Activities and tools to use with your team after the session. We won't cover these live.</p></div>
+      <ul class="th-list">
+        <li><a href="#selfcheck">Office readiness self-check</a></li>
+        <li><a href="#scenarios-2">Scenarios C and D</a></li>
+        <li><a href="#ai-team">AI and data project team roles</a></li>
+        <li><a href="#ai-ready">Before you start an AI or data project</a></li>
+        <li><a href="#plan">The 30-day plan</a></li>
+        <li><a href="#references">Policies and references</a></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="block slide" id="selfcheck" data-title="Readiness self-check">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Activity</div>
+        <h2>Office readiness self-check</h2>
+        <p class="lede">Rate where your office is today on each item. Your score and where to start are on the next slide. Answers stay in this browser.</p>
+      </div>
+      <div class="qs" id="qs"></div>
+    </div>
+  </section>
+
+
+  <section class="block slide" id="selfcheck-results" data-title="Self-check results">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Activity</div>
+        <h2>Your self-check results</h2>
+      </div>
+      <div class="result result-wide" aria-live="polite">
+        <div class="rw-score">
+          <div class="eyebrow">Your readiness</div>
+          <div class="score-big" id="score">0<small>/100</small></div>
+          <div><span class="band low" id="band">Answer to see your band</span></div>
+          <p id="bandText" style="color:var(--muted);font-size:.95em">Rate each item on the previous slide. The bars fill in as you go.</p>
+          <button type="button" class="linkish" id="resetCheck">Clear my answers</button>
+        </div>
+        <div class="bars" id="bars"></div>
+        <div class="start-here">
+          <strong>Start here</strong>
+          <ul id="startHere"><li>Your three lowest items will show up here.</li></ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="block slide" id="scenarios-2" data-title="Scenarios C and D">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Activity, continued</div>
+        <h2>What would your office do?</h2>
+      </div>
+      <div class="scen-grid" id="scen2"></div>
+    </div>
+  </section>
+
+
+  <section class="block slide" id="ai-team" data-title="The team">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Section 4</div>
+        <h2>Who's on the team, and what the program manager does with each</h2>
+      </div>
+      <div class="roles">
+        <div class="role"><strong>Research administrators</strong><span class="r-what">Users and subject experts</span><p>Bring them in from discovery through evaluation, and protect their time to take part.</p></div>
+        <div class="role"><strong>Developers and data scientists</strong><span class="r-what">Build the tool</span><p>Turn user needs into clear priorities, and shield them from constant scope changes.</p></div>
+        <div class="role"><strong>Research software engineers</strong><span class="r-what">Make it last</span><p>Plan for prototypes to become maintainable, documented software.</p></div>
+        <div class="role"><strong>Data owners and stewards</strong><span class="r-what">Control the inputs</span><p>Identify them early and start access approvals at kickoff.</p></div>
+        <div class="role"><strong>IT, security and compliance</strong><span class="r-what">Approve and host</span><p>Treat them as partners and put their reviews in the schedule.</p></div>
+        <div class="role"><strong>Evaluators</strong><span class="r-what">Measure results</span><p>Agree on measures early and make data available for evaluation.</p></div>
+        <div class="role"><strong>Partner institutions</strong><span class="r-what">Share the work</span><p>Align timelines, agreements and communication across sites.</p></div>
+        <div class="role"><strong>Leadership and sponsors</strong><span class="r-what">Fund and champion</span><p>Report outcomes, such as who uses the tool and what changed, not only outputs.</p></div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="block slide" id="ai-ready" data-title="Readiness checklist">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Section 4 · Activity</div>
+        <h2>Before you start an AI or data project</h2>
+        <p class="lede">Check what's true for a project you're planning. Your answers stay in this browser.</p>
+      </div>
+      <div class="ready">
+        <div class="ready-list" id="readyList"></div>
+        <aside class="ready-out" aria-live="polite">
+          <div class="score-big" id="readyCount">0<small> of 8</small></div>
+          <div class="bar-track"><div class="bar-fill" id="readyFill" style="width:0%"></div></div>
+          <p id="readyMsg"></p>
+          <button type="button" class="linkish" id="readyReset">Uncheck all</button>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="block slide" id="plan" data-title="30-day plan">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">After the session</div>
+        <h2>The 30-day plan</h2>
+        <p class="lede">One tool, one owner, one month. Check items off as you go; your progress stays in this browser.</p>
+      </div>
+      <div class="plan-top">
+        <div class="progress">
+          <div style="display:flex;justify-content:space-between"><strong>Progress</strong><span class="mono" id="planCount">0 of 0</span></div>
+          <div class="bar-track"><div class="bar-fill" id="planFill" style="width:0%"></div></div>
+        </div>
+        <button type="button" class="linkish" id="resetPlan">Uncheck all</button>
+      </div>
+      <div class="weeks" id="weeks"></div>
+    </div>
+  </section>
+
+
   <section class="block slide" id="references" data-title="Policies and references">
     <div class="wrap">
       <div class="sec-head">
@@ -1074,23 +1162,6 @@ section.block.slide { padding-block: 26px; }
     </div>
   </section>
 
-  <section class="slide closing" id="thanks" data-title="Thank you">
-    <div class="wrap close-grid">
-      <div>
-        <div class="eyebrow">NCURA PRA 2027 · #NCURAPRA</div>
-        <h2 class="close-title">Thank you.<br><span>Questions?</span></h2>
-        <div class="close-names">
-          <div><strong>Dashiell Tyler</strong><span>Program Manager, AI4RA</span></div>
-          <div><strong>Colin Addington</strong><span>Senior Program Manager, IIDS</span></div>
-        </div>
-        <p class="close-links">ai4ra.uidaho.edu · iids.uidaho.edu</p>
-      </div>
-      <div class="close-qr">
-        <button type="button" class="qr-box" id="qrOpen3" aria-label="Show the survey QR code full screen"><img id="thanksQR" alt="QR code for the AI4RA external evaluation survey" width="230" height="252"></button>
-        <p>AI4RA external evaluation survey</p>
-      </div>
-    </div>
-  </section>
 </main>
 
 <nav class="deck-ctl" aria-label="Slide controls">
@@ -1117,7 +1188,7 @@ section.block.slide { padding-block: 26px; }
 
 <footer>
   <div class="wrap">
-    <span>Three Years of AI · Dashiell Tyler and Colin Addington, University of Idaho · NCURA PRA 2027, New Orleans · #NCURAPRA</span>
+    <span>5 Years of AI · Dashiell Tyler and Colin Addington, University of Idaho · NCURA PRA 2027, New Orleans · #NCURAPRA</span>
     <a href="#top">Back to top</a>
   </div>
 </footer>
@@ -1540,11 +1611,14 @@ section.block.slide { padding-block: 26px; }
     { t: "How AI has changed over time", s: "How AI changed" },
     { t: "Using AI in your program or office", s: "Using AI" },
     { t: "Program management of an AI or data program", s: "Managing AI programs" },
-    { t: "Conclusion", s: "Conclusion" }
+    { t: "Conclusion", s: "Conclusion" },
+    { t: "Take-home materials", s: "Take-home" }
   ];
+  const MAIN_PARTS = 5;
   document.querySelectorAll(".divider").forEach(d => {
-    const n = +d.dataset.n;
-    d.querySelector(".roadmap").innerHTML = PARTS.map((p, i) =>
+    const n = +d.dataset.n, rm = d.querySelector(".roadmap");
+    if (!rm) return;
+    rm.innerHTML = PARTS.slice(0, MAIN_PARTS).map((p, i) =>
       `<li class="${i + 1 === n ? "cur" : i + 1 < n ? "past" : ""}"><a href="#part-${i + 1}"><span class="rn">${i + 1}</span><span>${esc(p.t)}</span></a></li>`).join("");
   });
 
@@ -1580,7 +1654,7 @@ section.block.slide { padding-block: 26px; }
     s.scrollTop = 0;
     $("deckCount").textContent = `${i + 1} / ${slides.length}`;
     const sec = +s.dataset.section;
-    $("deckTitle").textContent = s.classList.contains("divider") ? `Section ${sec} of ${PARTS.length}`
+    $("deckTitle").textContent = s.classList.contains("divider") ? (sec <= MAIN_PARTS ? `Section ${sec} of ${MAIN_PARTS}` : "After the session")
       : s.id === "top" ? "Title" : `${PARTS[sec - 1].s} · ${s.dataset.title || ""}`;
     $("deckProgress").style.width = ((i + 1) / slides.length * 100) + "%";
     $("deckPrev").disabled = i === 0;
