@@ -501,6 +501,49 @@ section.block.slide { padding-block: 26px; }
 .tl3 ul li { display: list-item; border: 0; padding: 0; position: static; }
 .tl3 ul li::before { content: none; }
 @media (max-width: 960px) { .timeline.tl3 { grid-template-columns: minmax(0, 1fr); } }
+/* Diagrams */
+.dia { margin: 0; display: grid; gap: 10px; }
+.dia > svg, .dia .dia-scroll > svg { display: block; width: 100%; height: auto; color: var(--ink); font-family: var(--font-body); }
+.dia .dia-scroll { overflow-x: auto; }
+.dia .dia-scroll > svg { min-width: 760px; }
+.dia figcaption { color: var(--muted); font-size: 0.9em; }
+.dia-link { cursor: pointer; }
+.dia-link:hover rect, .dia-link:focus-visible rect { stroke: #F1B300; stroke-width: 3; }
+.dia-link:focus { outline: none; }
+.tl-strip { display: block; width: 100%; height: auto; color: var(--ink); font-family: var(--font-body); margin-bottom: 4px; }
+@media (max-width: 640px) { .tl-strip { display: none; } }
+.chain { display: block; width: 100%; height: auto; color: var(--ink); font-family: var(--font-body); margin-bottom: 10px; }
+.measure.output { border-top-color: var(--line); }
+@media (min-width: 961px) {
+  #ai-measures .measures { grid-template-columns: repeat(6, minmax(0, 1fr)); }
+  #ai-measures .m-name { display: none; }
+}
+@media (max-width: 960px) { .chain { display: none; } }
+.risk-map { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 12px; color: var(--ink); }
+.risk-map svg { display: block; width: 100%; height: auto; font-family: var(--font-body); }
+.rk { cursor: pointer; outline: none; }
+.rk circle { fill: var(--surface); stroke: currentColor; stroke-width: 2.5; }
+.rk text { fill: currentColor; }
+.rk:hover circle, .rk:focus-visible circle { stroke: #F1B300; stroke-width: 4; }
+.rk.sel circle { fill: #F1B300; stroke: currentColor; }
+.rk.sel text { font-weight: 900; }
+.rd-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+.imp.lik { background: var(--sunk); color: var(--muted); }
+.lc-node { cursor: pointer; outline: none; }
+.lc-node rect { fill: var(--surface); stroke: currentColor; stroke-width: 2; }
+.lc-node text { fill: currentColor; }
+.lc-node:hover rect, .lc-node:focus-visible rect { stroke: #F1B300; stroke-width: 3; }
+.lc-node.sel rect { fill: #F1B300; stroke: #F1B300; }
+.lc-node.sel text { fill: #191919; }
+.lc-dia { margin-bottom: 4px; }
+.lc-dia .dia-scroll > svg { max-width: 940px; margin: 0 auto; }
+@media (min-width: 1100px) {
+  .lc-panel { padding: 14px 20px; gap: 10px; }
+  .lc-panel .goal { font-size: 1.05em; }
+  .lc-panel .it { padding-top: 10px; }
+}
+.lc-panel { border-top: 6px solid var(--gold); border-radius: 4px; }
+.lc-stage { display: inline-block; background: var(--gold); color: var(--on-gold); font-size: 0.8em; font-weight: 800; padding: 2px 10px; border-radius: 99px; margin-right: 8px; vertical-align: 2px; }
 .tl-fig { margin: 0; display: grid; gap: 14px; }
 .tl-scroll { overflow-x: auto; background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 20px 16px 12px; color: var(--ink); }
 .tl-scroll svg { display: block; width: 100%; min-width: 860px; height: auto; font-family: var(--font-body); }
@@ -910,9 +953,38 @@ section.block.slide { padding-block: 26px; }
       <div class="sec-head">
         <div class="eyebrow">Objective 3 · Apply</div>
         <h2>From a personal workflow to an office process</h2>
-        <p class="lede">Adopting a tool happens in stages, and IT is involved at each one. The next five slides take one stage each: what good practice looks like, what to ask, and what to watch for.</p>
+        <p class="lede">The next five slides take one stage each.</p>
       </div>
-      <ol class="shift-index stage-index" id="stageIndex"></ol>
+      <figure class="dia">
+        <svg viewBox="0 0 1100 250" role="img" aria-label="Five adoption stages in order: Explore (personal), Pilot (one team), Approve (IT and compliance), Roll out (office-wide), Sustain (ongoing). IT and compliance are involved at every stage: know approved tools, hear about the pilot before it starts, run the security review, agree on support, and review vendor changes.">
+          <defs><marker id="arrA" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+          <!-- Stages: each box opens its slide -->
+          <g font-size="15" text-anchor="middle" fill="currentColor">
+            <a href="#stage-1" class="dia-link"><rect x="10" y="16" width="180" height="96" rx="6" style="fill:var(--surface)" stroke="currentColor" stroke-width="2"/><text x="100" y="50" font-size="24" font-weight="900">1</text><text x="100" y="76" font-weight="800" font-size="18">Explore</text><text x="100" y="98" font-size="12" font-weight="700" fill-opacity="0.6" letter-spacing="1">PERSONAL</text></a>
+            <a href="#stage-2" class="dia-link"><rect x="238" y="16" width="180" height="96" rx="6" style="fill:var(--surface)" stroke="currentColor" stroke-width="2"/><text x="328" y="50" font-size="24" font-weight="900">2</text><text x="328" y="76" font-weight="800" font-size="18">Pilot</text><text x="328" y="98" font-size="12" font-weight="700" fill-opacity="0.6" letter-spacing="1">ONE TEAM</text></a>
+            <a href="#stage-3" class="dia-link"><rect x="465" y="16" width="180" height="96" rx="6" style="fill:var(--surface)" stroke="#F1B300" stroke-width="3"/><text x="555" y="50" font-size="24" font-weight="900">3</text><text x="555" y="76" font-weight="800" font-size="18">Approve</text><text x="555" y="98" font-size="12" font-weight="700" fill-opacity="0.6" letter-spacing="1">IT + COMPLIANCE</text></a>
+            <a href="#stage-4" class="dia-link"><rect x="693" y="16" width="180" height="96" rx="6" style="fill:var(--surface)" stroke="currentColor" stroke-width="2"/><text x="783" y="50" font-size="24" font-weight="900">4</text><text x="783" y="76" font-weight="800" font-size="18">Roll out</text><text x="783" y="98" font-size="12" font-weight="700" fill-opacity="0.6" letter-spacing="1">OFFICE-WIDE</text></a>
+            <a href="#stage-5" class="dia-link"><rect x="920" y="16" width="180" height="96" rx="6" style="fill:var(--surface)" stroke="currentColor" stroke-width="2"/><text x="1010" y="50" font-size="24" font-weight="900">5</text><text x="1010" y="76" font-weight="800" font-size="18">Sustain</text><text x="1010" y="98" font-size="12" font-weight="700" fill-opacity="0.6" letter-spacing="1">ONGOING</text></a>
+          </g>
+          <g stroke="currentColor" stroke-width="2" marker-end="url(#arrA)">
+            <line x1="192" y1="64" x2="234" y2="64"/><line x1="420" y1="64" x2="461" y2="64"/><line x1="647" y1="64" x2="689" y2="64"/><line x1="875" y1="64" x2="916" y2="64"/>
+          </g>
+          <!-- IT and compliance run under every stage -->
+          <g stroke="currentColor" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="4 4">
+            <line x1="100" y1="112" x2="100" y2="146"/><line x1="328" y1="112" x2="328" y2="146"/><line x1="555" y1="112" x2="555" y2="146"/><line x1="783" y1="112" x2="783" y2="146"/><line x1="1010" y1="112" x2="1010" y2="146"/>
+          </g>
+          <rect x="10" y="146" width="1090" height="40" rx="6" style="fill:var(--gold-soft)" stroke="#F1B300" stroke-width="2"/>
+          <text x="555" y="172" text-anchor="middle" font-size="15" font-weight="800" fill="currentColor">IT and compliance: involved at every stage, not only at approval</text>
+          <g font-size="13" text-anchor="middle" fill="currentColor" fill-opacity="0.75">
+            <text x="100" y="212">Know which tools</text><text x="100" y="229">are approved</text>
+            <text x="328" y="212">Hear about the pilot</text><text x="328" y="229">before it starts</text>
+            <text x="555" y="212">Security, privacy and</text><text x="555" y="229">procurement review</text>
+            <text x="783" y="212">Agree who supports</text><text x="783" y="229">and fixes what</text>
+            <text x="1010" y="212">Review vendor changes</text><text x="1010" y="229">and renewals</text>
+          </g>
+        </svg>
+        <figcaption>Click a stage to open its slide.</figcaption>
+      </figure>
     </div>
   </section>
 
@@ -994,15 +1066,53 @@ section.block.slide { padding-block: 26px; }
         <h2>AI and data projects aren't like other projects</h2>
         <p class="lede">Many familiar project management habits still apply. These are the places where they need to change.</p>
       </div>
+      <figure class="dia cmp-dia">
+        <div class="dia-scroll">
+          <svg viewBox="0 0 1100 176" role="img" aria-label="Comparison. A typical systems project runs in a straight line: requirements, build, done. An AI or data tool project takes requirements plus data you may not control yet, loops between build and test, launches, then needs ongoing monitoring, returning to build and test whenever models or data change.">
+            <defs><marker id="arrC" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+            <g fill="currentColor" font-size="13" font-weight="800" letter-spacing="1.2">
+              <text x="10" y="18" fill-opacity="0.65">TYPICAL SYSTEMS PROJECT</text>
+              <text x="580" y="18">AI OR DATA TOOL PROJECT</text>
+            </g>
+            <line x1="580" y1="26" x2="790" y2="26" stroke="#F1B300" stroke-width="4"/>
+            <line x1="545" y1="10" x2="545" y2="170" stroke="currentColor" stroke-opacity="0.25" stroke-width="2" stroke-dasharray="5 6"/>
+            <!-- Typical: a straight line -->
+            <g stroke="currentColor" stroke-width="2" style="fill:var(--surface)" stroke-opacity="0.6">
+              <rect x="10" y="74" width="140" height="44" rx="6"/><rect x="195" y="74" width="120" height="44" rx="6"/><rect x="360" y="74" width="150" height="44" rx="6"/>
+            </g>
+            <g fill="currentColor" font-size="15" font-weight="700" text-anchor="middle" fill-opacity="0.75">
+              <text x="80" y="101">Requirements</text><text x="255" y="101">Build</text><text x="435" y="101">Done ✓</text>
+            </g>
+            <g stroke="currentColor" stroke-width="2" stroke-opacity="0.6" marker-end="url(#arrC)"><line x1="152" y1="96" x2="191" y2="96"/><line x1="317" y1="96" x2="356" y2="96"/></g>
+            <!-- AI or data: two inputs, a loop, and no finish line -->
+            <g stroke="currentColor" stroke-width="2" style="fill:var(--surface)">
+              <rect x="580" y="46" width="130" height="40" rx="6"/>
+              <rect x="580" y="106" width="130" height="40" rx="6" stroke="#F1B300" stroke-width="3"/>
+              <rect x="760" y="73" width="150" height="46" rx="6"/>
+              <rect x="950" y="73" width="140" height="46" rx="6"/>
+            </g>
+            <g fill="currentColor" font-size="15" font-weight="700" text-anchor="middle">
+              <text x="645" y="71">Requirements</text><text x="645" y="131">Data</text>
+              <text x="835" y="101">Build ⇄ Test</text><text x="1020" y="101">Launch, monitor</text>
+            </g>
+            <text x="645" y="162" text-anchor="middle" font-size="12" fill="currentColor" fill-opacity="0.7">often not yours to control</text>
+            <g stroke="currentColor" stroke-width="2" fill="none" marker-end="url(#arrC)">
+              <path d="M712 66 L756 88"/><path d="M712 126 L756 104"/>
+              <line x1="912" y1="96" x2="946" y2="96"/>
+              <path d="M800 71 Q835 38 870 71"/>
+              <path d="M1020 121 Q930 172 850 121" stroke-dasharray="6 5" stroke-opacity="0.75"/>
+            </g>
+            <text x="835" y="46" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor">repeat</text>
+            <text x="945" y="168" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" fill-opacity="0.75">models and data change</text>
+          </svg>
+        </div>
+      </figure>
       <div class="cmp-wrap">
         <table class="cmp">
           <thead><tr><th scope="col"></th><th scope="col">Typical systems project</th><th scope="col">AI or data tool project</th></tr></thead>
           <tbody>
             <tr><th scope="row">Scope</th><td>Set up front from requirements</td><td>Discovered as you learn what the data and model can do</td></tr>
-            <tr><th scope="row">Key inputs</th><td>Requirements</td><td>Requirements plus data you may not control yet</td></tr>
             <tr><th scope="row">Quality</th><td>It works or it doesn't</td><td>Right most of the time, so it needs measuring and human review</td></tr>
-            <tr><th scope="row">Done means</th><td>Delivered and accepted</td><td>Evaluated, adopted and maintained</td></tr>
-            <tr><th scope="row">After launch</th><td>Occasional updates</td><td>Ongoing monitoring as data, models and vendors change</td></tr>
             <tr><th scope="row">Success</th><td>On time and on budget</td><td>Used, trusted and improving how work gets done</td></tr>
           </tbody>
         </table>
@@ -1013,12 +1123,39 @@ section.block.slide { padding-block: 26px; }
   <section class="block slide" id="ai-lifecycle" data-title="Project lifecycle">
     <div class="wrap">
       <div class="sec-head">
-        <div class="eyebrow">Objective 4 · Plan</div>
+        <div class="eyebrow">Objective 4 · Plan · Click a stage for details</div>
         <h2>The AI and data project lifecycle</h2>
-        <p class="lede">Pick a stage to see where the program manager should focus. The stages overlap and repeat; most projects loop through Build and Evaluate many times.</p>
       </div>
-      <div class="tabs" role="tablist" id="lcTabs"></div>
-      <div class="panel" role="tabpanel" id="lcPanel" aria-live="polite"></div>
+      <figure class="dia lc-dia">
+        <div class="dia-scroll">
+          <svg viewBox="0 0 1100 158" role="group" aria-label="Project lifecycle: Discover, Data, Build and Evaluate in a repeating loop, Deploy, Sustain, with a return from Sustain to Evaluate when models or data change. Choose a stage to see details.">
+            <defs><marker id="arrL" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+            <g fill="none" stroke="currentColor" stroke-width="2" marker-end="url(#arrL)">
+              <line x1="156" y1="70" x2="177" y2="70"/>
+              <line x1="331" y1="70" x2="367" y2="70"/>
+              <line x1="726" y1="70" x2="762" y2="70"/>
+              <line x1="916" y1="70" x2="942" y2="70"/>
+              <path d="M490 46 Q547 2 606 46"/>
+              <path d="M606 94 Q547 138 490 94"/>
+              <path d="M1020 94 Q860 162 690 96" stroke-dasharray="6 5" stroke-opacity="0.7"/>
+            </g>
+            <g font-size="13" fill="currentColor" text-anchor="middle" font-weight="700">
+              <text x="548" y="16">test</text>
+              <text x="548" y="134">improve</text>
+              <text x="860" y="152" fill-opacity="0.7" font-weight="600">re-test when AI models or data change</text>
+            </g>
+            <g class="lc-nodes" font-size="16" font-weight="800" text-anchor="middle">
+              <g class="lc-node" data-i="0" tabindex="0" role="button" aria-label="Discover"><rect x="5" y="47" width="150" height="46" rx="23"/><text x="80" y="76">Discover</text></g>
+              <g class="lc-node" data-i="1" tabindex="0" role="button" aria-label="Data"><rect x="180" y="47" width="150" height="46" rx="23"/><text x="255" y="76">Data</text></g>
+              <g class="lc-node" data-i="2" tabindex="0" role="button" aria-label="Build"><rect x="370" y="47" width="150" height="46" rx="23"/><text x="445" y="76">Build</text></g>
+              <g class="lc-node" data-i="3" tabindex="0" role="button" aria-label="Evaluate"><rect x="575" y="47" width="150" height="46" rx="23"/><text x="650" y="76">Evaluate</text></g>
+              <g class="lc-node" data-i="4" tabindex="0" role="button" aria-label="Deploy"><rect x="765" y="47" width="150" height="46" rx="23"/><text x="840" y="76">Deploy</text></g>
+              <g class="lc-node" data-i="5" tabindex="0" role="button" aria-label="Sustain"><rect x="945" y="47" width="150" height="46" rx="23"/><text x="1020" y="76">Sustain</text></g>
+            </g>
+          </svg>
+        </div>
+      </figure>
+      <div class="panel lc-panel" id="lcPanel" aria-live="polite"></div>
     </div>
   </section>
 
@@ -1028,10 +1165,10 @@ section.block.slide { padding-block: 26px; }
       <div class="sec-head">
         <div class="eyebrow">Objective 4 · Plan</div>
         <h2>Risks to plan for</h2>
-        <p class="lede">The risks that most often stall AI and data projects. Pick one to see the warning signs and how to reduce it.</p>
+        <p class="lede">Click a risk to see warning signs and how to reduce it. Likelihood ratings are drafts; adjust them to your own experience.</p>
       </div>
       <div class="risk-grid">
-        <div class="risk-list" id="riskList"></div>
+        <div class="risk-map" id="riskMap"></div>
         <div class="risk-detail" id="riskDetail" aria-live="polite"></div>
       </div>
     </div>
@@ -1042,14 +1179,38 @@ section.block.slide { padding-block: 26px; }
       <div class="sec-head">
         <div class="eyebrow">Objective 4 · Plan</div>
         <h2>Measuring success beyond on time and on budget</h2>
-        <p class="lede">Funders want outputs, such as tools, code and papers. They increasingly want outcomes too: who uses the tool, and what changed.</p>
+        <p class="lede">Delivering the tool is the first step, not the finish line. Funders increasingly ask what happened next.</p>
       </div>
+      <svg class="chain" viewBox="0 0 1100 86" role="img" aria-label="From output to outcomes: delivered is the output. Used, trusted, accurate, saves time and lasts are outcomes.">
+        <g fill="currentColor" font-size="13" font-weight="800" letter-spacing="1.2" text-anchor="middle">
+          <text x="87" y="14" fill-opacity="0.65">OUTPUT</text>
+          <text x="642" y="14">OUTCOMES</text>
+        </g>
+        <line x1="185" y1="20" x2="590" y2="20" stroke="#F1B300" stroke-width="3"/><line x1="695" y1="20" x2="1100" y2="20" stroke="#F1B300" stroke-width="3"/>
+        <polygon points="0,26 157.33,26 173.33,54 157.33,82 0,82" style="fill:var(--sunk)" stroke="currentColor" stroke-opacity="0.35" stroke-width="2"/>
+        <g style="fill:var(--gold-soft)" stroke="#F1B300" stroke-width="2">
+          <polygon points="185.33,26 342.67,26 358.67,54 342.67,82 185.33,82 201.33,54"/>
+          <polygon points="370.67,26 528,26 544,54 528,82 370.67,82 386.67,54"/>
+          <polygon points="556,26 713.33,26 729.33,54 713.33,82 556,82 572,54"/>
+          <polygon points="741.33,26 898.67,26 914.67,54 898.67,82 741.33,82 757.33,54"/>
+          <polygon points="926.67,26 1084,26 1100,54 1084,82 926.67,82 942.67,54"/>
+        </g>
+        <g fill="currentColor" font-size="18" font-weight="900" text-anchor="middle">
+          <text x="84" y="61" fill-opacity="0.7">Delivered</text>
+          <text x="276" y="61">Used</text>
+          <text x="461" y="61">Trusted</text>
+          <text x="647" y="61">Accurate</text>
+          <text x="832" y="61">Saves time</text>
+          <text x="1017" y="61">Lasts</text>
+        </g>
+      </svg>
       <div class="measures">
-        <div class="measure"><strong>Quality</strong><p>How often is the output right?</p><ul><li>Share correct on real test cases</li><li>How serious the errors are</li></ul></div>
-        <div class="measure"><strong>Time saved</strong><p>Is the work faster?</p><ul><li>Minutes per task compared with the old way</li><li>Turnaround time for requests</li></ul></div>
-        <div class="measure"><strong>Adoption</strong><p>Do people use it?</p><ul><li>Active users over time</li><li>Share of eligible tasks done with the tool</li></ul></div>
-        <div class="measure"><strong>Trust</strong><p>Do users rely on it?</p><ul><li>User satisfaction</li><li>How often users redo or override the output</li></ul></div>
-        <div class="measure"><strong>Sustainability</strong><p>Will it last?</p><ul><li>A named owner after the project ends</li><li>Documentation and a maintenance plan</li></ul></div>
+        <div class="measure output"><strong class="m-name">Delivered</strong><ul><li>Tool, code and documentation released</li><li>On time and on budget</li></ul></div>
+        <div class="measure"><strong class="m-name">Used</strong><ul><li>Active users over time</li><li>Share of eligible tasks done with the tool</li></ul></div>
+        <div class="measure"><strong class="m-name">Trusted</strong><ul><li>User satisfaction</li><li>How often users redo or override the output</li></ul></div>
+        <div class="measure"><strong class="m-name">Accurate</strong><ul><li>Share correct on real test cases</li><li>How serious the errors are</li></ul></div>
+        <div class="measure"><strong class="m-name">Saves time</strong><ul><li>Minutes per task compared with the old way</li><li>Turnaround time for requests</li></ul></div>
+        <div class="measure"><strong class="m-name">Lasts</strong><ul><li>A named owner after the project ends</li><li>Documentation and a maintenance plan</li></ul></div>
       </div>
     </div>
   </section>
@@ -1372,6 +1533,15 @@ section.block.slide { padding-block: 26px; }
         <div class="eyebrow">What changed · ${i + 1} of ${SHIFTS.length} · ${esc(s.tag)}</div>
         <h2>${esc(s.t)}</h2>
       </div>
+      <svg class="tl-strip" viewBox="0 0 1088 44" aria-hidden="true">
+        <line x1="0" y1="30" x2="1088" y2="30" stroke="currentColor" stroke-opacity="0.3" stroke-width="3"/>
+        <line x1="305" y1="30" x2="1088" y2="30" stroke="#F1B300" stroke-width="5"/>
+        <circle cx="305" cy="30" r="5" fill="#F1B300"/>
+        <text x="305" y="13" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" fill-opacity="0.7">Nov 2022 · ChatGPT</text>
+        <circle cx="176" cy="30" r="9" style="fill:var(--bg)" stroke="currentColor" stroke-width="3"/>
+        <circle cx="544" cy="30" r="9" style="fill:var(--bg)" stroke="currentColor" stroke-width="3"/>
+        <circle cx="912" cy="30" r="11" fill="#F1B300" stroke="currentColor" stroke-width="3"/>
+      </svg>
       <div class="shift-big">
         <div class="tcol then five"><span class="lbl">5 years ago</span><p>${esc(s.five)}</p></div>
         <div class="tcol then three"><span class="lbl">3 years ago</span><p>${esc(s.three)}</p></div>
@@ -1430,7 +1600,6 @@ section.block.slide { padding-block: 26px; }
       watch: ["Staff-built tools whose builder has left", "Renewals that happen automatically with no review"],
       it: "Keep IT in the loop on vendor changes and renewals. A new feature can change the review status." }
   ];
-  $("stageIndex").innerHTML = ST.map((s, i) => `<li><a href="#stage-${i + 1}"><span class="n">${i + 1}</span><strong>${esc(s.k)}</strong><span class="tg">${esc(s.code.toLowerCase())}</span></a></li>`).join("");
   const stList = (cls, arr) => `<ul class="${cls}">${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
   $("adopt").insertAdjacentHTML("afterend", ST.map((s, i) => `
   <section class="block slide" id="stage-${i + 1}" data-title="Stage ${i + 1}: ${esc(s.k)}">
@@ -1668,46 +1837,70 @@ section.block.slide { padding-block: 26px; }
       watch: ["A tool that stops working when the grant ends", "Accuracy quietly dropping after a model update"],
       users: "Users report problems and ask for improvements." }
   ];
-  const lcTabs = $("lcTabs"), lcPanel = $("lcPanel");
-  lcTabs.innerHTML = LCY.map((s, i) => `<button role="tab" id="lct${i}" aria-controls="lcPanel" aria-selected="${i === 0}" tabindex="${i === 0 ? 0 : -1}">${esc(s.k)}</button>`).join("");
-  const lcBtns = [...lcTabs.children];
+  // The lifecycle diagram's stage nodes act as the stage picker
+  const lcPanel = $("lcPanel");
+  const lcNodes = [...document.querySelectorAll(".lc-node")];
   function showLC(i) {
-    lcBtns.forEach((b, j) => { b.setAttribute("aria-selected", i === j); b.tabIndex = i === j ? 0 : -1; });
+    lcNodes.forEach((g, j) => { g.classList.toggle("sel", i === j); g.setAttribute("aria-pressed", i === j); });
     const s = LCY[i];
-    lcPanel.setAttribute("aria-labelledby", "lct" + i);
     const list = (cls, arr) => `<ul class="${cls}">${arr.map(x => `<li>${esc(x)}</li>`).join("")}</ul>`;
-    lcPanel.innerHTML = `<p class="goal">${esc(s.goal)}</p>
+    lcPanel.innerHTML = `<p class="goal"><span class="lc-stage">${esc(s.k)}</span> ${esc(s.goal)}</p>
       <div class="cols"><div><h4>Program manager's focus</h4>${list("n", s.focus)}</div><div><h4>Ask</h4>${list("q", s.ask)}</div><div><h4>Watch for</h4>${list("w", s.watch)}</div></div>
       <div class="it"><span class="chip">Users' role</span><p>${esc(s.users)}</p></div>`;
   }
-  lcBtns.forEach((b, i) => {
-    b.onclick = () => showLC(i);
-    b.onkeydown = e => {
-      const d = e.key === "ArrowRight" ? 1 : e.key === "ArrowLeft" ? -1 : 0;
-      if (d) { const n = (i + d + LCY.length) % LCY.length; showLC(n); lcBtns[n].focus(); }
-    };
+  lcNodes.forEach((g, i) => {
+    g.addEventListener("click", () => showLC(i));
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showLC(i); } });
   });
   showLC(0);
 
   /* ---------- Section 4: risks ---------- */
   const RISKS = [
-    { t: "Data access stalls", imp: "High", signs: ["Agreements still unsigned months in", "Nobody can say who owns a data source"], fix: ["Start data use agreements and approvals at kickoff", "Name an owner for every data source", "Keep building with synthetic or public sample data"] },
-    { t: "The tool is wrong in ways that matter", imp: "High", signs: ["Errors on unusual cases", "Users catching mistakes in the output"], fix: ["Test with real cases that have known right answers", "Build in human review where errors are costly", "Show users the source behind each answer"] },
-    { t: "Users don't adopt it", imp: "High", signs: ["Low use after launch", "Old workarounds still in place"], fix: ["Involve users from discovery onward", "Train with their own real examples", "Name a champion inside the user group"] },
-    { t: "Funding ends before the tool is sustainable", imp: "High", signs: ["No owner named for after the award", "No budget for hosting or maintenance"], fix: ["Settle the handoff plan by the project's midpoint", "Partner with a unit that will host and support it", "Open-source the code where possible"] },
-    { t: "Scope keeps growing", imp: "Medium", signs: ["New requests at every demo", "The core feature still isn't finished"], fix: ["Keep a visible backlog and a 'later' list", "Agree on a definition of done for each release"] },
-    { t: "Knowledge sits with one person", imp: "Medium", signs: ["One person can answer every question", "Work stops when they're out"], fix: ["Pair people on key work", "Make documentation part of done", "Keep code in a shared repository"] },
-    { t: "AI models or vendors change underneath you", imp: "Medium", signs: ["Output quality shifts after an update", "Pricing or terms change"], fix: ["Re-run your test cases after every model change", "Pin model versions where you can", "Avoid depending on a single vendor"] }
+    { t: "Data access stalls", short: ["Data access", "stalls"], imp: "High", lik: "High", signs: ["Agreements still unsigned months in", "Nobody can say who owns a data source"], fix: ["Start data use agreements and approvals at kickoff", "Name an owner for every data source", "Keep building with synthetic or public sample data"] },
+    { t: "The tool is wrong in ways that matter", short: ["Tool is wrong", "when it matters"], imp: "High", lik: "Medium", signs: ["Errors on unusual cases", "Users catching mistakes in the output"], fix: ["Test with real cases that have known right answers", "Build in human review where errors are costly", "Show users the source behind each answer"] },
+    { t: "Users don't adopt it", short: ["Users don't", "adopt it"], imp: "High", lik: "High", signs: ["Low use after launch", "Old workarounds still in place"], fix: ["Involve users from discovery onward", "Train with their own real examples", "Name a champion inside the user group"] },
+    { t: "Funding ends before the tool is sustainable", short: ["Funding ends", "too soon"], imp: "High", lik: "Medium", signs: ["No owner named for after the award", "No budget for hosting or maintenance"], fix: ["Settle the handoff plan by the project's midpoint", "Partner with a unit that will host and support it", "Open-source the code where possible"] },
+    { t: "Scope keeps growing", short: ["Scope keeps", "growing"], imp: "Medium", lik: "High", signs: ["New requests at every demo", "The core feature still isn't finished"], fix: ["Keep a visible backlog and a 'later' list", "Agree on a definition of done for each release"] },
+    { t: "Knowledge sits with one person", short: ["Knowledge in", "one person"], imp: "Medium", lik: "Medium", signs: ["One person can answer every question", "Work stops when they're out"], fix: ["Pair people on key work", "Make documentation part of done", "Keep code in a shared repository"] },
+    { t: "AI models or vendors change underneath you", short: ["Models or", "vendors change"], imp: "Medium", lik: "High", signs: ["Output quality shifts after an update", "Pricing or terms change"], fix: ["Re-run your test cases after every model change", "Pin model versions where you can", "Avoid depending on a single vendor"] }
   ];
-  $("riskList").innerHTML = RISKS.map((r, i) => `<button type="button" class="risk-btn" aria-pressed="${i === 0}" data-i="${i}"><span>${esc(r.t)}</span><span class="imp ${r.imp.toLowerCase()}">${r.imp}</span></button>`).join("");
+  // Likelihood x impact grid, drawn from RISKS; each point opens its details
+  (function drawRiskMap() {
+    const LV = ["Low", "Medium", "High"], X0 = 74, CW = 146, Y0 = 18, RH = 160;
+    const rows = ["High", "Medium"], used = {};
+    let s = `<svg viewBox="0 0 520 386" role="group" aria-label="Risks placed by likelihood and impact. Choose a risk to see details.">`;
+    rows.forEach((imp, ri) => LV.forEach((lik, ci) => {
+      const hot = imp === "High" && lik === "High";
+      s += `<rect x="${X0 + ci * CW}" y="${Y0 + ri * RH}" width="${CW}" height="${RH}" style="fill:${hot ? "var(--crit)" : "none"};fill-opacity:${hot ? 0.1 : 0}" stroke="currentColor" stroke-opacity="0.2"/>`;
+    }));
+    s += `<g fill="currentColor" font-size="13" font-weight="700">
+      <text transform="rotate(-90 16 178)" x="16" y="178" text-anchor="middle" letter-spacing="1.5" fill-opacity="0.65">IMPACT</text>
+      <text x="66" y="102" text-anchor="end">High</text><text x="66" y="262" text-anchor="end">Medium</text>
+      ${LV.map((l, ci) => `<text x="${X0 + ci * CW + CW / 2}" y="360" text-anchor="middle">${l}</text>`).join("")}
+      <text x="${X0 + 1.5 * CW}" y="381" text-anchor="middle" letter-spacing="1.5" fill-opacity="0.65">LIKELIHOOD (DRAFT)</text></g>`;
+    RISKS.forEach((r, i) => {
+      const ci = LV.indexOf(r.lik), ri = rows.indexOf(r.imp), key = ri + "-" + ci;
+      const k = used[key] = (used[key] || 0) + 1;
+      const cx = X0 + ci * CW + 18, cy = Y0 + ri * RH + 44 + (k - 1) * 64;
+      s += `<g class="rk" data-i="${i}" tabindex="0" role="button" aria-label="${esc(r.t)}: ${r.lik} likelihood, ${r.imp} impact">
+        <circle cx="${cx}" cy="${cy}" r="9"/>
+        <text x="${cx + 16}" y="${cy - 2}" font-size="14" font-weight="700">${esc(r.short[0])}</text>
+        <text x="${cx + 16}" y="${cy + 15}" font-size="14" font-weight="700">${esc(r.short[1])}</text></g>`;
+    });
+    $("riskMap").innerHTML = s + `</svg>`;
+  })();
+  const rkNodes = [...document.querySelectorAll("#riskMap .rk")];
   function showRisk(i) {
-    [...$("riskList").children].forEach((b, j) => b.setAttribute("aria-pressed", i === j));
+    rkNodes.forEach((g, j) => { g.classList.toggle("sel", i === j); g.setAttribute("aria-pressed", i === j); });
     const r = RISKS[i];
-    $("riskDetail").innerHTML = `<div class="rd-top"><h3>${esc(r.t)}</h3><span class="imp ${r.imp.toLowerCase()}">${r.imp} impact</span></div>
+    $("riskDetail").innerHTML = `<div class="rd-top"><h3>${esc(r.t)}</h3></div>
       <div class="rd-cols"><div><h4>Warning signs</h4><ul>${r.signs.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
       <div><h4>How to reduce it</h4><ul>${r.fix.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div></div>`;
   }
-  $("riskList").addEventListener("click", e => { const b = e.target.closest(".risk-btn"); if (b) showRisk(+b.dataset.i); });
+  rkNodes.forEach((g, i) => {
+    g.addEventListener("click", () => showRisk(i));
+    g.addEventListener("keydown", e => { if (e.key === "Enter" || e.key === " ") { e.preventDefault(); showRisk(i); } });
+  });
   showRisk(0);
 
   /* ---------- Section 4: readiness checklist ---------- */
