@@ -59,3 +59,4 @@ Follows the [University of Idaho brand](https://www.uidaho.edu/brand): Pride Gol
 ## Still to do
 
 - Add the session day, time and room once the conference program is published.
+- Fill in the other AI4RA sessions at NCURA PRA 2027 on the "Keep the conversation going" slide (marked with a comment in `index.html`; add or remove rows as needed).

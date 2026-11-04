@@ -421,6 +421,14 @@ section.block.slide { padding-block: 26px; }
   .close-qr .qr-box img { width: 230px; }
 }
 
+/* Other AI4RA sessions (placeholder until the program is released) */
+.more-sessions { margin-top: 16px; border: 2px dashed var(--line); border-radius: 4px; padding: 14px 18px; display: grid; gap: 10px; }
+.ms-head { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 6px 16px; }
+.ms-note { color: var(--muted); font-size: 0.88em; }
+.ms-list { list-style: none; margin: 0; padding: 0; display: grid; gap: 6px; }
+.ms-list li { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); gap: 4px 16px; padding: 8px 12px; background: var(--surface); border-left: 4px solid var(--gold); border-radius: 0 4px 4px 0; }
+@media (max-width: 640px) { .ms-list li { grid-template-columns: minmax(0, 1fr); } }
+
 /* Split slides */
 .feature { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .stage-panel { border-top: 6px solid var(--gold); border-radius: 4px; }
@@ -1272,6 +1280,14 @@ section.block.slide { padding-block: 26px; }
           <p>The Institute for Interdisciplinary Data Sciences supports research computing, genomics and bioinformatics, and data science across the university.</p>
           <span class="feat-url">iids.uidaho.edu <span aria-hidden="true">→</span></span>
         </a>
+      </div>
+      <!-- Placeholder: fill in when the NCURA PRA 2027 program is released -->
+      <div class="more-sessions">
+        <div class="ms-head"><span class="eyebrow">More AI4RA at NCURA PRA 2027</span><span class="ms-note">Sessions to be announced when the conference program is released</span></div>
+        <ul class="ms-list">
+          <li><strong class="placeholder">[Session title]</strong><span class="placeholder">[Day, time and room]</span><span class="placeholder">[Presenters]</span></li>
+          <li><strong class="placeholder">[Session title]</strong><span class="placeholder">[Day, time and room]</span><span class="placeholder">[Presenters]</span></li>
+        </ul>
       </div>
     </div>
   </section>
