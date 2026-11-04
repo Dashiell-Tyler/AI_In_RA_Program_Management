@@ -519,6 +519,7 @@ section.block.slide { padding-block: 26px; }
   #ai-measures .m-name { display: none; }
 }
 @media (max-width: 960px) { .chain { display: none; } }
+@media (min-width: 961px) { #ai-risks .risk-grid { grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); } }
 .risk-map { background: var(--surface); border: 1px solid var(--line); border-radius: 4px; padding: 12px; color: var(--ink); }
 .risk-map svg { display: block; width: 100%; height: auto; font-family: var(--font-body); }
 .rk { cursor: pointer; outline: none; }
@@ -1856,36 +1857,48 @@ section.block.slide { padding-block: 26px; }
 
   /* ---------- Section 4: risks ---------- */
   const RISKS = [
-    { t: "Data access stalls", short: ["Data access", "stalls"], imp: "High", lik: "High", signs: ["Agreements still unsigned months in", "Nobody can say who owns a data source"], fix: ["Start data use agreements and approvals at kickoff", "Name an owner for every data source", "Keep building with synthetic or public sample data"] },
+    { t: "Data access stalls", short: ["Data access stalls"], imp: "High", lik: "High", signs: ["Agreements still unsigned months in", "Nobody can say who owns a data source"], fix: ["Start data use agreements and approvals at kickoff", "Name an owner for every data source", "Keep building with synthetic or public sample data"] },
     { t: "The tool is wrong in ways that matter", short: ["Tool is wrong", "when it matters"], imp: "High", lik: "Medium", signs: ["Errors on unusual cases", "Users catching mistakes in the output"], fix: ["Test with real cases that have known right answers", "Build in human review where errors are costly", "Show users the source behind each answer"] },
-    { t: "Users don't adopt it", short: ["Users don't", "adopt it"], imp: "High", lik: "High", signs: ["Low use after launch", "Old workarounds still in place"], fix: ["Involve users from discovery onward", "Train with their own real examples", "Name a champion inside the user group"] },
-    { t: "Funding ends before the tool is sustainable", short: ["Funding ends", "too soon"], imp: "High", lik: "Medium", signs: ["No owner named for after the award", "No budget for hosting or maintenance"], fix: ["Settle the handoff plan by the project's midpoint", "Partner with a unit that will host and support it", "Open-source the code where possible"] },
-    { t: "Scope keeps growing", short: ["Scope keeps", "growing"], imp: "Medium", lik: "High", signs: ["New requests at every demo", "The core feature still isn't finished"], fix: ["Keep a visible backlog and a 'later' list", "Agree on a definition of done for each release"] },
-    { t: "Knowledge sits with one person", short: ["Knowledge in", "one person"], imp: "Medium", lik: "Medium", signs: ["One person can answer every question", "Work stops when they're out"], fix: ["Pair people on key work", "Make documentation part of done", "Keep code in a shared repository"] },
-    { t: "AI models or vendors change underneath you", short: ["Models or", "vendors change"], imp: "Medium", lik: "High", signs: ["Output quality shifts after an update", "Pricing or terms change"], fix: ["Re-run your test cases after every model change", "Pin model versions where you can", "Avoid depending on a single vendor"] }
+    { t: "Users don't adopt it", short: ["Users don't adopt"], imp: "High", lik: "High", signs: ["Low use after launch", "Old workarounds still in place"], fix: ["Involve users from discovery onward", "Train with their own real examples", "Name a champion inside the user group"] },
+    { t: "Security review stalls everything", short: ["Security review"], imp: "High", lik: "High", signs: ["No one can say how long the review will take", "Work paused while questions about data, hosting or vendors stay open"], fix: ["Start the security review at kickoff, not just before launch", "Bring a clear description of the data, hosting and vendor terms", "Put review time in the schedule and keep building parts that don't touch sensitive data"] },
+    { t: "Funding ends before the tool is sustainable", short: ["Funding ends", "too soon"], imp: "High", lik: "Low", signs: ["No owner named for after the award", "No budget for hosting or maintenance"], fix: ["Settle the handoff plan by the project's midpoint", "Partner with a unit that will host and support it", "Open-source the code where possible"] },
+    { t: "Scope keeps growing", short: ["Scope creep"], imp: "Medium", lik: "High", signs: ["New requests at every demo", "The core feature still isn't finished"], fix: ["Keep a visible backlog and a 'later' list", "Agree on a definition of done for each release"] },
+    { t: "Knowledge sits with one person", short: ["Knowledge in", "one person"], imp: "Low", lik: "Low", signs: ["One person can answer every question", "Work stops when they're out"], fix: ["Pair people on key work", "Make documentation part of done", "Keep code in a shared repository"] },
+    { t: "AI models or vendors change underneath you", short: ["Models change"], imp: "Medium", lik: "High", signs: ["Output quality shifts after an update", "Pricing or terms change"], fix: ["Re-run your test cases after every model change", "Pin model versions where you can", "Avoid depending on a single vendor"] },
+    { t: "Hidden back-end problems slow development", short: ["Black-box", "problems"], imp: "Medium", lik: "Medium", signs: ["Output changes and nobody can explain why", "Days spent chasing errors that are hard to reproduce"], fix: ["Log inputs, outputs and model versions", "Keep a fixed set of test cases to catch changes quickly", "Prefer tools that show their sources, and add human review"] },
+    { t: "Easy tool-building spawns side projects", short: ["Side projects", "pull focus"], imp: "Medium", lik: "Low", signs: ["New mini-tools built in an afternoon with AI coding tools such as Claude Code", "Core features slip while side tools get attention"], fix: ["Keep a visible 'later' list for side ideas", "Check new work against the project's core goal", "Agree on who can start a new tool, and when"] },
+    { t: "Users don't see the value of testing", short: ["Users don't see", "the value"], imp: "Medium", lik: "Medium", signs: ["Testers ask why they should bother", "Feedback is polite but vague"], fix: ["Start testing with the task that hurts users most", "Show the time or errors saved on their own work", "Share what changed because of their feedback"] },
+    { t: "Users don't have time to test", short: ["No time to test"], imp: "Medium", lik: "High", signs: ["Test sessions get canceled or rescheduled", "Feedback arrives after the build has moved on"], fix: ["Ask supervisors to protect testing time", "Keep sessions short: 20 to 30 minutes on one task", "Schedule testing away from proposal deadline crunches"] },
+    { t: "User testing lacks focus and direction", short: ["Testing lacks", "direction"], imp: "Low", lik: "High", signs: ["Sessions turn into general demos", "Feedback covers everything except the question you needed answered"], fix: ["Set one or two questions for each session", "Give testers a real task and a short script", "Write down decisions after each session"] },
+    { t: "No human-centered design", short: ["No human-centered", "design"], imp: "High", lik: "Low", signs: ["Users first see the tool at launch", "Data is collected and features are built without asking the people who will use them"], fix: ["Involve users in every stage: data collection, design, testing and rollout", "Have developers watch users do the real work", "Name user representatives on the project team"] },
+    { t: "AI usage costs creep up", short: ["AI costs", "creep up"], imp: "Low", lik: "Medium", signs: ["Monthly AI charges rising with no one watching", "AI services paid on a personal or departmental card"], fix: ["Set a monthly spending cap and alert", "Tie the account to the project's budget", "Review usage at each milestone"] }
   ];
   // Likelihood x impact grid, drawn from RISKS; each point opens its details
   (function drawRiskMap() {
-    const LV = ["Low", "Medium", "High"], X0 = 74, CW = 146, Y0 = 18, RH = 160;
-    const rows = ["High", "Medium"], used = {};
-    let s = `<svg viewBox="0 0 520 386" role="group" aria-label="Risks placed by likelihood and impact. Choose a risk to see details.">`;
+    const LV = ["Low", "Medium", "High"], X0 = 90, CW = 172, Y0 = 14, RH = 118;
+    const rows = ["High", "Medium", "Low"], used = {};
+    const GB = Y0 + rows.length * RH;
+    let s = `<svg viewBox="0 0 612 ${GB + 50}" role="group" aria-label="Risks placed by likelihood and impact. Choose a risk to see details.">`;
     rows.forEach((imp, ri) => LV.forEach((lik, ci) => {
       const hot = imp === "High" && lik === "High";
       s += `<rect x="${X0 + ci * CW}" y="${Y0 + ri * RH}" width="${CW}" height="${RH}" style="fill:${hot ? "var(--crit)" : "none"};fill-opacity:${hot ? 0.1 : 0}" stroke="currentColor" stroke-opacity="0.2"/>`;
     }));
     s += `<g fill="currentColor" font-size="13" font-weight="700">
-      <text transform="rotate(-90 16 178)" x="16" y="178" text-anchor="middle" letter-spacing="1.5" fill-opacity="0.65">IMPACT</text>
-      <text x="66" y="102" text-anchor="end">High</text><text x="66" y="262" text-anchor="end">Medium</text>
-      ${LV.map((l, ci) => `<text x="${X0 + ci * CW + CW / 2}" y="360" text-anchor="middle">${l}</text>`).join("")}
-      <text x="${X0 + 1.5 * CW}" y="381" text-anchor="middle" letter-spacing="1.5" fill-opacity="0.65">LIKELIHOOD (DRAFT)</text></g>`;
+      <text transform="rotate(-90 14 ${Y0 + 1.5 * RH})" x="14" y="${Y0 + 1.5 * RH}" text-anchor="middle" letter-spacing="1.5" fill-opacity="0.65">IMPACT</text>
+      ${rows.map((l, ri) => `<text x="${X0 - 8}" y="${Y0 + ri * RH + RH / 2 + 5}" text-anchor="end">${l}</text>`).join("")}
+      ${LV.map((l, ci) => `<text x="${X0 + ci * CW + CW / 2}" y="${GB + 20}" text-anchor="middle">${l}</text>`).join("")}
+      <text x="${X0 + 1.5 * CW}" y="${GB + 42}" text-anchor="middle" letter-spacing="1.5" fill-opacity="0.65">LIKELIHOOD (DRAFT)</text></g>`;
+    // Stack each cell's risks top to bottom; one-line labels take less room than two-line ones
     RISKS.forEach((r, i) => {
       const ci = LV.indexOf(r.lik), ri = rows.indexOf(r.imp), key = ri + "-" + ci;
-      const k = used[key] = (used[key] || 0) + 1;
-      const cx = X0 + ci * CW + 18, cy = Y0 + ri * RH + 44 + (k - 1) * 64;
+      const cy = used[key] || (Y0 + ri * RH + 28);
+      used[key] = cy + 20 + 17 * (r.short.length - 1) + 14;
+      const cx = X0 + ci * CW + 18;
+      const one = r.short.length === 1;
       s += `<g class="rk" data-i="${i}" tabindex="0" role="button" aria-label="${esc(r.t)}: ${r.lik} likelihood, ${r.imp} impact">
         <circle cx="${cx}" cy="${cy}" r="9"/>
-        <text x="${cx + 16}" y="${cy - 2}" font-size="14" font-weight="700">${esc(r.short[0])}</text>
-        <text x="${cx + 16}" y="${cy + 15}" font-size="14" font-weight="700">${esc(r.short[1])}</text></g>`;
+        <text x="${cx + 16}" y="${one ? cy + 5 : cy - 2}" font-size="14" font-weight="700">${esc(r.short[0])}</text>
+        ${one ? "" : `<text x="${cx + 16}" y="${cy + 15}" font-size="14" font-weight="700">${esc(r.short[1])}</text>`}</g>`;
     });
     $("riskMap").innerHTML = s + `</svg>`;
   })();
