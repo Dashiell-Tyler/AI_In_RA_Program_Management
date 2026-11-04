@@ -14,7 +14,7 @@ It's published as a Claude artifact at https://claude.ai/artifact/W3RTYoZGhRE2NR
 
 ### Sections and timing (60-minute session)
 
-The live talk is 36 slides and about 44 minutes, which leaves about 15 minutes for questions.
+The live talk is 37 slides and about 44 minutes, which leaves about 15 minutes for questions.
 
 | # | Section | Slides | Target time |
 |---|---|---|---|
@@ -22,7 +22,7 @@ The live talk is 36 slides and about 44 minutes, which leaves about 15 minutes f
 | 2 | **How AI has changed over time**: what changed in five years (six slides, each comparing 5 years ago, 3 years ago and now; about 1.5 min each), what stayed the same, five-year timeline overview | 10 | 11 min |
 | 3 | **Using AI in your program or office**: adoption stages (overview plus five stage slides), accountability card, scenarios A–B, role paths | 10 | 13 min |
 | 4 | **Program management of an AI or data program**: what's different, project lifecycle, risks, measuring success, scenarios E–F | 6 | 12 min |
-| 5 | **Conclusion**: key takeaways, resources, feedback survey | 4 | 3 min |
+| 5 | **Conclusion**: key takeaways, resources, feedback survey, references | 5 | 3 min |
 | | **Thank you / Questions** (closing slide; leave the survey QR code up) | 1 | ~15 min |
 
 To stay on time, run each scenario slide as a quick show of hands (about 3 minutes), and give each "What changed" slide about a minute and a half and each adoption-stage slide about a minute.
@@ -36,7 +36,21 @@ These slides come after the closing slide, so attendees can use them later from 
 - AI and data project team roles
 - Before you start an AI or data project (readiness checklist)
 - The 30-day plan
-- Policies and references
+
+### References and citations
+
+Every factual claim on a slide carries a numbered citation that links to the **References** slide near the end of the conclusion. Numbers are assigned automatically in order of first appearance.
+
+To add a claim with a source:
+
+1. Add the source to the `REFS` list in `index.html`, under a short key such as `"nih-25-132"`, with publisher, title, date and URL.
+2. Put a marker right after the claim:
+   - In slide text: `<sup class="cite" data-ref="nih-25-132"></sup>`
+   - In SVG graphics: `<tspan class="cite" data-ref="nih-25-132" baseline-shift="super" font-size="10"></tspan>`
+   - In generated content: `citeTag("nih-25-132")`
+3. Use several keys separated by spaces to cite more than one source, e.g. `data-ref="umich-gpt chatgpt-edu"`.
+
+The details on the "What changed" cards are the presenters' own experience in research administration, and the section's intro slide says so. Dated events and product claims on those cards are cited.
 
 ### Presenting
 

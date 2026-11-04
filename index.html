@@ -429,6 +429,23 @@ section.block.slide { padding-block: 26px; }
 .ms-list li { display: grid; grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr) minmax(0, 1fr); gap: 4px 16px; padding: 8px 12px; background: var(--surface); border-left: 4px solid var(--gold); border-radius: 0 4px 4px 0; }
 @media (max-width: 640px) { .ms-list li { grid-template-columns: minmax(0, 1fr); } }
 
+/* Citations and References slide */
+sup.cite { font-size: 0.62em; font-weight: 700; line-height: 0; margin-left: 1px; white-space: nowrap; }
+sup.cite a { color: var(--accent); text-decoration: none; }
+sup.cite a:hover { text-decoration: underline; }
+.hero sup.cite a, .slide.divider sup.cite a, .slide.closing sup.cite a { color: var(--gold); }
+.hidden-now sup.cite { visibility: hidden; }
+.src-note { color: var(--muted); font-size: 0.85em; font-style: italic; }
+.refs { list-style: none; margin: 0; padding: 0; columns: 2; column-gap: 32px; font-size: 0.8em; line-height: 1.35; }
+.refs li { display: grid; grid-template-columns: 24px minmax(0, 1fr); gap: 6px; align-items: start; break-inside: avoid; margin-bottom: 7px; }
+.ref-n { font-weight: 900; color: var(--accent); text-align: right; }
+.ref-who { font-weight: 700; }
+.ref-date { color: var(--muted); }
+.refs a { color: var(--accent); overflow-wrap: anywhere; font-size: 0.92em; }
+.refs-more { margin-top: 16px; color: var(--muted); font-size: 0.88em; }
+@media (max-width: 760px) { .refs { columns: 1; } }
+#references .sec-head { margin-bottom: 14px; }
+
 /* Split slides */
 .feature { grid-template-columns: repeat(2, minmax(0, 1fr)); }
 .stage-panel { border-top: 6px solid var(--gold); border-radius: 4px; }
@@ -689,7 +706,7 @@ section.block.slide { padding-block: 26px; }
       <div class="eyebrow">NCURA PRA 2027 · Concurrent session · AI/Data/ERA/Systems</div>
       <h1>5 Years of AI</h1>
       <p class="sub"><strong>What changed in program management for research administration</strong>, and what it means for your office.</p>
-      <p class="blurb lede">In about five years, AI and data science tools went from a specialist research topic to everyday infrastructure in research administration. Project management platforms ship with AI assistants, institutions host their own AI platforms, and staff with little programming background build working tools. This page walks through what changed, what didn't, and how to manage it in a pre-award office, from solicitation review to submission.</p>
+      <p class="blurb lede">In about five years, AI and data science tools went from a specialist research topic to everyday infrastructure in research administration. Project management platforms ship with AI assistants,<sup class="cite" data-ref="monday-ai clickup-brain"></sup> institutions host their own AI platforms,<sup class="cite" data-ref="umich-gpt chatgpt-edu"></sup> and staff with little programming background build working tools.<sup class="cite" data-ref="claude-4"></sup> This page walks through what changed, what didn't, and how to manage it in a pre-award office, from solicitation review to submission.</p>
       <div class="cta-row">
         <a class="btn btn-primary" href="#part-1">Start the session</a>
         <a class="btn btn-ghost" href="#accountability">Build an accountability card</a>
@@ -699,8 +716,8 @@ section.block.slide { padding-block: 26px; }
     <aside class="cover" aria-label="Session details">
       <div class="cover-head"><span class="mono">SESSION RECORD</span><span class="mono">INTERMEDIATE</span></div>
       <dl>
-        <dt>Conference</dt><dd>NCURA 21st Pre-Award Research Administration Conference (PRA)</dd>
-        <dt>Dates</dt><dd>March 18–19, 2027<br>New Orleans, LA</dd>
+        <dt>Conference</dt><dd>NCURA 21st Pre-Award Research Administration Conference (PRA)<sup class="cite" data-ref="ncura"></sup></dd>
+        <dt>Dates</dt><dd>March 18–19, 2027<br>New Orleans, LA<sup class="cite" data-ref="ncura"></sup></dd>
         <dt>Session</dt><dd class="placeholder">[Day, time and room TBA]</dd>
         <dt>Presenters</dt><dd>Dashiell Tyler<br>Colin Addington<br>University of Idaho</dd>
         <dt>Format</dt><dd>Concurrent session. Slides with Q&amp;A built in.</dd>
@@ -729,13 +746,13 @@ section.block.slide { padding-block: 26px; }
         <article class="person">
           <span class="eyebrow">Dashiell Tyler · Program Manager</span>
           <div class="prog">AI4RA</div>
-          <p>An NSF-funded initiative with Southern Utah University developing AI tools for research administrators.</p>
+          <p>An NSF-funded initiative with Southern Utah University developing AI tools for research administrators.<sup class="cite" data-ref="ai4ra-grant nsf-award"></sup></p>
           <div class="facts"><span class="chip">NSF Award 2427549</span><span class="chip">With Southern Utah University</span></div>
         </article>
         <article class="person">
           <span class="eyebrow">Colin Addington · Senior Program Manager</span>
           <div class="prog">IIDS project portfolio</div>
-          <p>Projects at the Institute for Interdisciplinary Data Sciences, which supports research computing, genomics and bioinformatics, and data science across the university.</p>
+          <p>Projects at the Institute for Interdisciplinary Data Sciences, which supports research computing, genomics and bioinformatics, and data science across the university.<sup class="cite" data-ref="iids"></sup></p>
           <div class="facts"><span class="chip">Research computing</span><span class="chip">Genomics &amp; bioinformatics</span><span class="chip">Data science</span></div>
         </article>
       </div>
@@ -807,11 +824,11 @@ section.block.slide { padding-block: 26px; }
         <p class="lede">Plain-language definitions for words you'll hear in this session. No technical background needed.</p>
       </div>
       <dl class="terms">
-        <div class="term"><dt>Generative AI</dt><dd>AI that creates new text, images or other content in response to a request, such as drafting an email or summarizing a document.</dd></div>
-        <div class="term"><dt>Large language model (LLM)</dt><dd>The technology behind tools like ChatGPT, Copilot and Claude. It's trained on large amounts of text to predict and produce language.</dd></div>
+        <div class="term"><dt>Generative AI</dt><dd>AI that creates new text, images or other content in response to a request, such as drafting an email or summarizing a document.<sup class="cite" data-ref="nist-600-1"></sup></dd></div>
+        <div class="term"><dt>Large language model (LLM)</dt><dd>The technology behind tools like ChatGPT, Copilot and Claude. It's trained on large amounts of text to predict and produce language.<sup class="cite" data-ref="nist-600-1"></sup></dd></div>
         <div class="term"><dt>Prompt</dt><dd>The instructions or question you type into an AI tool. Clearer prompts usually get more useful results.</dd></div>
-        <div class="term"><dt>Hallucination</dt><dd>When an AI tool states something false with confidence, like a deadline or page limit that isn't in the solicitation. This is why people check the output.</dd></div>
-        <div class="term"><dt>Built-in AI feature</dt><dd>An AI assistant added to software you already use, such as ClickUp, Monday or an eRA system, often through a vendor update.</dd></div>
+        <div class="term"><dt>Hallucination</dt><dd>When an AI tool states something false with confidence, like a deadline or page limit that isn't in the solicitation. NIST calls this "confabulation."<sup class="cite" data-ref="nist-600-1"></sup> This is why people check the output.</dd></div>
+        <div class="term"><dt>Built-in AI feature</dt><dd>An AI assistant added to software you already use, such as ClickUp or monday.com, often through a vendor update.<sup class="cite" data-ref="monday-ai clickup-brain"></sup></dd></div>
         <div class="term"><dt>Institutionally hosted AI platform</dt><dd>An AI tool your university provides and manages, with rules about which data you may use in it.</dd></div>
         <div class="term"><dt>AI-assisted tool building</dt><dd>Using AI to help create a working tool, such as a tracker, form or spreadsheet, without being a programmer.</dd></div>
         <div class="term"><dt>Human review</dt><dd>A person checks AI output before it's used or sent. Sometimes called "human in the loop."</dd></div>
@@ -836,8 +853,9 @@ section.block.slide { padding-block: 26px; }
       <div class="sec-head">
         <div class="eyebrow">Objective 2 · Describe</div>
         <h2>What changed in five years</h2>
-        <p class="lede">The next six slides each show where research administration offices were five years ago, three years ago and now, and the effect on how programs are planned and run. To present them one step at a time, switch on "Reveal one at a time" and click each hidden "Now" panel.</p>
-        <p class="turn"><strong>The turning point:</strong> ChatGPT's public release in late 2022 put generative AI in front of everyone at once. It falls between "5 years ago" and "3 years ago."</p>
+        <p class="lede">The next six slides each show where research administration offices were five years ago, three years ago and now, and the effect on how programs are planned and run.</p>
+        <p class="turn"><strong>The turning point:</strong> ChatGPT's public release in late 2022 put generative AI in front of everyone at once.<sup class="cite" data-ref="chatgpt"></sup> It falls between "5 years ago" and "3 years ago."</p>
+        <p class="src-note">Details on the next six slides reflect the presenters' experience in research administration. Dated events and product claims are cited.</p>
       </div>
       <div class="shift-bar">
         <div class="seg" role="group" aria-label="Reveal mode">
@@ -858,7 +876,7 @@ section.block.slide { padding-block: 26px; }
       </div>
       <figure class="tl-fig">
         <div class="tl-scroll">
-          <svg viewBox="0 0 1100 320" role="img" aria-label="Timeline from 2022 to 2027. Generative AI arrived with ChatGPT's public release in November 2022. Key events: NIH bars generative AI in peer review (June 2023), AI assistants added to project management tools (2023 to 2024), universities launch hosted AI platforms (2024 to 2025), NIH limits AI-generated applications (July 2025), staff build working tools with AI help (2025 to 2026). Snapshots: five years ago, AI behind the scenes; three years ago, everyone experimenting; now, AI is infrastructure.">
+          <svg viewBox="0 0 1100 320" role="img" aria-label="Timeline from 2022 to 2027. Generative AI arrived with ChatGPT's public release in November 2022. Key events: NIH bars generative AI in peer review (June 2023), AI assistants added to project management tools (2023 to 2024), universities launch hosted AI platforms (2023 to 2024), NIH limits AI-generated applications (July 2025), staff build working tools with AI help (2025 to 2026). Snapshots: five years ago, AI behind the scenes; three years ago, everyone experimenting; now, AI is infrastructure.">
             <!-- Axis: gray before generative AI, gold after -->
             <line x1="40" y1="200" x2="1060" y2="200" stroke="currentColor" stroke-opacity="0.3" stroke-width="3"/>
             <line x1="231" y1="200" x2="1060" y2="200" stroke="#F1B300" stroke-width="6"/>
@@ -876,32 +894,32 @@ section.block.slide { padding-block: 26px; }
               <line x1="231" y1="74" x2="231" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
               <circle cx="231" cy="200" r="7" fill="#F1B300" stroke="currentColor" stroke-width="2"/>
               <text x="231" y="30" font-weight="800">Nov 2022 · Turning point</text>
-              <text x="231" y="48" font-weight="700">ChatGPT released</text><text x="231" y="65" font-weight="700">to the public</text>
+              <text x="231" y="48" font-weight="700">ChatGPT released</text><text x="231" y="65" font-weight="700">to the public<tspan class="cite" data-ref="chatgpt" baseline-shift="super" font-size="10"></tspan></text>
 
               <line x1="336" y1="154" x2="336" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
               <circle cx="336" cy="200" r="5"/>
               <text x="336" y="110" font-weight="800" fill-opacity="0.65">Jun 2023</text>
-              <text x="336" y="128">NIH bars generative AI</text><text x="336" y="145">in peer review</text>
+              <text x="336" y="128">NIH bars generative AI</text><text x="336" y="145">in peer review<tspan class="cite" data-ref="nih-23-149" baseline-shift="super" font-size="10"></tspan></text>
 
               <line x1="440" y1="74" x2="440" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
               <circle cx="440" cy="200" r="5"/>
               <text x="440" y="30" font-weight="800" fill-opacity="0.65">2023–24</text>
-              <text x="440" y="48">AI assistants added to</text><text x="440" y="65">project management tools</text>
+              <text x="440" y="48">AI assistants added to</text><text x="440" y="65">project management tools<tspan class="cite" data-ref="monday-ai clickup-brain" baseline-shift="super" font-size="10"></tspan></text>
 
-              <line x1="592" y1="154" x2="592" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
-              <circle cx="592" cy="200" r="5"/>
-              <text x="592" y="110" font-weight="800" fill-opacity="0.65">2024–25</text>
-              <text x="592" y="128">Universities launch</text><text x="592" y="145">hosted AI platforms</text>
+              <line x1="536" y1="154" x2="536" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
+              <circle cx="536" cy="200" r="5"/>
+              <text x="536" y="110" font-weight="800" fill-opacity="0.65">2023–24</text>
+              <text x="536" y="128">Universities launch</text><text x="536" y="145">hosted AI platforms<tspan class="cite" data-ref="umich-gpt chatgpt-edu" baseline-shift="super" font-size="10"></tspan></text>
 
               <line x1="735" y1="74" x2="735" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
               <circle cx="735" cy="200" r="5"/>
               <text x="735" y="30" font-weight="800" fill-opacity="0.65">Jul 2025</text>
-              <text x="735" y="48">NIH limits AI-generated</text><text x="735" y="65">applications</text>
+              <text x="735" y="48">NIH limits AI-generated</text><text x="735" y="65">applications<tspan class="cite" data-ref="nih-25-132" baseline-shift="super" font-size="10"></tspan></text>
 
               <line x1="845" y1="154" x2="845" y2="194" stroke="currentColor" stroke-opacity="0.35"/>
               <circle cx="845" cy="200" r="5"/>
               <text x="845" y="110" font-weight="800" fill-opacity="0.65">2025–26</text>
-              <text x="845" y="128">Staff build working</text><text x="845" y="145">tools with AI help</text>
+              <text x="845" y="128">Staff build working</text><text x="845" y="145">tools with AI help<tspan class="cite" data-ref="claude-4" baseline-shift="super" font-size="10"></tspan></text>
             </g>
             <!-- Snapshots below the line: the three columns used on the "What changed" cards -->
             <g fill="currentColor" font-size="13">
@@ -1169,7 +1187,7 @@ section.block.slide { padding-block: 26px; }
   </section>
 
 
-  <section class="block slide" id="ai-risks" data-title="Risks to plan for">
+  <section class="block slide" id="ai-risks" data-title="Risks to plan for" data-refs="claude-4">
     <div class="wrap">
       <div class="sec-head">
         <div class="eyebrow">Objective 4 · Plan</div>
@@ -1271,13 +1289,13 @@ section.block.slide { padding-block: 26px; }
         <a class="feat-card" href="https://ai4ra.uidaho.edu/" target="_blank" rel="noopener">
           <span class="eyebrow">Program website</span>
           <strong class="feat-name">AI4RA</strong>
-          <p>AI tools for research administrators, developed by the University of Idaho and Southern Utah University with NSF support.</p>
+          <p>AI tools for research administrators, developed by the University of Idaho and Southern Utah University with NSF support.<sup class="cite" data-ref="ai4ra-grant nsf-award"></sup></p>
           <span class="feat-url">ai4ra.uidaho.edu <span aria-hidden="true">→</span></span>
         </a>
         <a class="feat-card" href="https://www.iids.uidaho.edu/" target="_blank" rel="noopener">
           <span class="eyebrow">Institute website</span>
           <strong class="feat-name">IIDS</strong>
-          <p>The Institute for Interdisciplinary Data Sciences supports research computing, genomics and bioinformatics, and data science across the university.</p>
+          <p>The Institute for Interdisciplinary Data Sciences supports research computing, genomics and bioinformatics, and data science across the university.<sup class="cite" data-ref="iids"></sup></p>
           <span class="feat-url">iids.uidaho.edu <span aria-hidden="true">→</span></span>
         </a>
       </div>
@@ -1307,6 +1325,20 @@ section.block.slide { padding-block: 26px; }
   </section>
 
 
+  <section class="block slide" id="references" data-title="References">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="eyebrow">Conclusion</div>
+        <h2>References</h2>
+      </div>
+      <ol class="refs" id="refList"></ol>
+      <p class="refs-more"><strong>Further resources:</strong>
+        <a href="https://ui-insight.github.io/REACHWorkshop2026/" target="_blank" rel="noopener">AI4RA REACH 2026 workshop</a> ·
+        <a href="https://github.com/ui-insight" target="_blank" rel="noopener">ui-insight on GitHub</a> ·
+        <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener">NIST AI Risk Management Framework</a>
+      </p>
+    </div>
+  </section>
   <section class="slide closing" id="thanks" data-title="Thank you">
     <div class="wrap close-grid">
       <div>
@@ -1334,7 +1366,6 @@ section.block.slide { padding-block: 26px; }
         <li><a href="#ai-team">AI and data project team roles</a></li>
         <li><a href="#ai-ready">Before you start an AI or data project</a></li>
         <li><a href="#plan">The 30-day plan</a></li>
-        <li><a href="#references">Policies and references</a></li>
       </ul>
     </div>
   </section>
@@ -1445,23 +1476,6 @@ section.block.slide { padding-block: 26px; }
   </section>
 
 
-  <section class="block slide" id="references" data-title="Policies and references">
-    <div class="wrap">
-      <div class="sec-head">
-        <div class="eyebrow">Conclusion</div>
-        <h2>Policies and references</h2>
-      </div>
-      <div class="res">
-        <a href="https://www.nsf.gov/awardsearch/showAward?AWD_ID=2427549" target="_blank" rel="noopener"><span class="mono src">NSF 2427549</span><strong>AI4RA award</strong><p>The NSF award record for AI4RA, a University of Idaho and Southern Utah University collaboration.</p></a>
-        <a href="https://ui-insight.github.io/REACHWorkshop2026/" target="_blank" rel="noopener"><span class="mono src">AI4RA</span><strong>AI4RA REACH 2026 workshop</strong><p>Workshop modules, role-based guides and a 30-day roadmap for research administration teams.</p></a>
-        <a href="https://github.com/ui-insight" target="_blank" rel="noopener"><span class="mono src">GitHub</span><strong>ui-insight</strong><p>Open-source tools and code from the University of Idaho team.</p></a>
-        <a href="https://www.nist.gov/itl/ai-risk-management-framework" target="_blank" rel="noopener"><span class="mono src">NIST</span><strong>AI Risk Management Framework</strong><p>A shared vocabulary for governing AI tools. Useful when you talk to IT and compliance.</p></a>
-        <a href="https://grants.nih.gov/grants/guide/notice-files/NOT-OD-25-132.html" target="_blank" rel="noopener"><span class="mono src">NOT-OD-25-132</span><strong>NIH on AI-generated applications</strong><p>Originality expectations and a per-PI application limit. Useful when PIs ask whether they can use AI to write a proposal.</p></a>
-        <a href="https://grants.nih.gov/grants/guide/notice-files/NOT-OD-23-149.html" target="_blank" rel="noopener"><span class="mono src">NOT-OD-23-149</span><strong>NIH on AI in peer review</strong><p>Why reviewers may not put application content into generative AI tools.</p></a>
-      </div>
-      <p class="note">Product features and sponsor policies change often. Confirm details against current documentation and your institution's IT and AI policies.</p>
-    </div>
-  </section>
 
 </main>
 
@@ -1501,6 +1515,39 @@ section.block.slide { padding-block: 26px; }
     set(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) {} }
   };
   const esc = s => String(s).replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+
+  /* ---------- References ----------
+     Every factual claim gets a citation marker: <sup class="cite" data-ref="key"></sup> in HTML,
+     <tspan class="cite" data-ref="key"> in SVG, or citeTag("key") in generated content.
+     Use several keys separated by spaces. Add each new source to REFS below.
+     Numbers are assigned in order of first appearance and the References slide lists them. */
+  const REFS = {
+    "ncura": { who: "National Council of University Research Administrators (NCURA)", title: "About the Conference: 21st Pre-Award Research Administration Conference", date: "accessed November 2026", url: "https://www.ncura.edu/pra/Education/AbouttheConference.aspx" },
+    "ai4ra-grant": { who: "University of Idaho, AI4RA", title: "U of I Awarded $4.5 Million Grant to Pioneer Generative AI Tools for Research Administration", date: "February 7, 2025", url: "https://ai4ra.uidaho.edu/?p=246" },
+    "nsf-award": { who: "U.S. National Science Foundation", title: "Award Search: Award 2427549", date: "accessed November 2026", url: "https://www.nsf.gov/awardsearch/showAward?AWD_ID=2427549" },
+    "iids": { who: "University of Idaho", title: "Institute for Interdisciplinary Data Sciences (IIDS)", date: "accessed November 2026", url: "https://www.iids.uidaho.edu/" },
+    "monday-ai": { who: "monday.com", title: "monday.com unveils plans to incorporate transformative AI capabilities in 2023", date: "April 19, 2023", url: "https://monday.com/p/press-release/monday-com-unveils-plans-to-incorporate-transformative-ai-capabilities-in-2023/" },
+    "clickup-brain": { who: "ClickUp (Business Wire)", title: "Introducing ClickUp Brain: The First AI Neural Network for Work", date: "January 30, 2024", url: "https://www.businesswire.com/news/home/20240130528352/en/Introducing-ClickUp-Brain-The-First-AI-Neural-Network-for-Work" },
+    "umich-gpt": { who: "University of Michigan, The University Record", title: "ITS debuts custom artificial intelligence services across U-M", date: "August 2023", url: "https://record.umich.edu/articles/its-debuts-customized-ai-services-to-u-m-community" },
+    "chatgpt-edu": { who: "OpenAI", title: "Introducing ChatGPT Edu", date: "May 30, 2024", url: "https://openai.com/index/introducing-chatgpt-edu/" },
+    "claude-4": { who: "Anthropic", title: "Introducing Claude 4 (Claude Code generally available)", date: "May 22, 2025", url: "https://www.anthropic.com/news/claude-4" },
+    "nist-600-1": { who: "National Institute of Standards and Technology", title: "AI Risk Management Framework: Generative Artificial Intelligence Profile (NIST AI 600-1)", date: "July 2024", url: "https://doi.org/10.6028/NIST.AI.600-1" },
+    "chatgpt": { who: "OpenAI", title: "Introducing ChatGPT", date: "November 30, 2022", url: "https://openai.com/index/chatgpt/" },
+    "educause-2024": { who: "EDUCAUSE", title: "2024 EDUCAUSE AI Landscape Study", date: "February 2024", url: "https://www.educause.edu/ecar/research-publications/2024/2024-educause-ai-landscape-study/introduction-and-key-findings" },
+    "nih-23-149": { who: "National Institutes of Health", title: "NOT-OD-23-149: The Use of Generative Artificial Intelligence Technologies is Prohibited for the NIH Peer Review Process", date: "June 23, 2023", url: "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-23-149.html" },
+    "nih-25-132": { who: "National Institutes of Health", title: "NOT-OD-25-132: Supporting Fairness and Originality in NIH Research Applications", date: "July 17, 2025", url: "https://grants.nih.gov/grants/guide/notice-files/NOT-OD-25-132.html" }
+  };
+  const refOrder = [];
+  let citesReady = false;
+  const refNum = k => { let i = refOrder.indexOf(k); if (i < 0) { refOrder.push(k); i = refOrder.length - 1; } return i + 1; };
+  const citeTag = keys => keys ? `<sup class="cite" data-ref="${esc(keys)}"></sup>` : "";
+  function renderCites(root) {
+    root.querySelectorAll("[data-ref]").forEach(el => {
+      const nums = el.dataset.ref.trim().split(/\s+/).filter(k => REFS[k]).map(refNum);
+      if (el instanceof SVGElement) el.textContent = " " + nums.join(",");
+      else el.innerHTML = "[" + nums.map(n => `<a href="#references" title="${esc(REFS[refOrder[n - 1]].title)}">${n}</a>`).join(", ") + "]";
+    });
+  }
   const $ = id => document.getElementById(id);
 
   /* Present mode */
@@ -1514,17 +1561,17 @@ section.block.slide { padding-block: 26px; }
     { t: "AI in everyday tools", tag: "Where AI lives",
       five: "AI lived in specialized research tools built by data scientists, not in the software offices used every day.",
       three: "A separate chatbot in a browser tab, tried out by a few curious staff.",
-      now: "Built into the project management platforms offices already use, such as ClickUp and Monday, and showing up in eRA systems.",
+      now: "Built into the project management platforms offices already use, such as ClickUp and monday.com.", nowRef: "monday-ai clickup-brain",
       ra: "AI features can arrive through a vendor update, not a decision your office made. Program managers now need to know which features are on, whether they touch draft proposals, budgets or sponsor-confidential material, and whether anyone has reviewed them." },
     { t: "Institutional platforms", tag: "Who provides it",
       five: "Nothing to provide. Institutions licensed eRA, email and office software, but no AI tools.",
       three: "Individual staff using personal or free consumer accounts.",
-      now: "Institutions deploying their own hosted AI platforms with approved data uses.",
+      now: "Institutions deploying their own hosted AI platforms with approved data uses.", nowRef: "umich-gpt chatgpt-edu",
       ra: "The question shifts from 'Can I use AI?' to 'Which approved tool fits this task and this data?' Summarizing a public funding announcement is different from working with a PI's unpublished specific aims or a budget with salary data. Offices need to steer work toward the sanctioned platform and know its limits." },
     { t: "Who builds tools", tag: "Who makes things",
       five: "Custom tools came from IT or a developer, after a request and a long queue. Staff built spreadsheets and macros.",
       three: "Early adopters used chatbots to write spreadsheet formulas and short scripts, but most tools still came from IT.",
-      now: "Staff with little programming background build working tools with AI assistance, such as deadline trackers and proposal intake forms.",
+      now: "Staff with little programming background build working tools with AI assistance, such as deadline trackers and proposal intake forms.", nowRef: "claude-4",
       ra: "This is a big capacity gain and a new risk. A tool one person built can become something the whole office depends on during a deadline crunch, with no owner, documentation or security review." },
     { t: "How work moves", tag: "Process",
       five: "Proposal intake by email, deadline calendars kept by hand, checklists rebuilt for every solicitation.",
@@ -1538,7 +1585,7 @@ section.block.slide { padding-block: 26px; }
       ra: "Buying licenses is not adoption. Someone has to set usage expectations, track whether people use the tool, and decide whether it's worth keeping." },
     { t: "Working with IT", tag: "The relationship",
       five: "An occasional help desk ticket.",
-      three: "IT and security issued warnings and early AI guidance, often after staff were already using the tools.",
+      three: "IT and security issued warnings and early AI guidance, often after staff were already using the tools.", threeRef: "educause-2024",
       now: "An ongoing partnership. Security reviews and approvals sit on the critical path of most projects.",
       ra: "Managing the IT relationship is now program management work. Bring IT and compliance in early, plan for review time in the schedule, and build trust before you need a fast answer." }
   ];
@@ -1554,15 +1601,15 @@ section.block.slide { padding-block: 26px; }
         <line x1="0" y1="30" x2="1088" y2="30" stroke="currentColor" stroke-opacity="0.3" stroke-width="3"/>
         <line x1="305" y1="30" x2="1088" y2="30" stroke="#F1B300" stroke-width="5"/>
         <circle cx="305" cy="30" r="5" fill="#F1B300"/>
-        <text x="305" y="13" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" fill-opacity="0.7">Nov 2022 · ChatGPT</text>
+        <text x="305" y="13" text-anchor="middle" font-size="12" font-weight="700" fill="currentColor" fill-opacity="0.7">Nov 2022 · ChatGPT<tspan class="cite" data-ref="chatgpt" baseline-shift="super" font-size="9"></tspan></text>
         <circle cx="176" cy="30" r="9" style="fill:var(--bg)" stroke="currentColor" stroke-width="3"/>
         <circle cx="544" cy="30" r="9" style="fill:var(--bg)" stroke="currentColor" stroke-width="3"/>
         <circle cx="912" cy="30" r="11" fill="#F1B300" stroke="currentColor" stroke-width="3"/>
       </svg>
       <div class="shift-big">
         <div class="tcol then five"><span class="lbl">5 years ago</span><p>${esc(s.five)}</p></div>
-        <div class="tcol then three"><span class="lbl">3 years ago</span><p>${esc(s.three)}</p></div>
-        <div class="tcol now"><span class="lbl">Now</span><p class="now-txt" tabindex="-1">${esc(s.now)}</p></div>
+        <div class="tcol then three"><span class="lbl">3 years ago</span><p>${esc(s.three)}${citeTag(s.threeRef)}</p></div>
+        <div class="tcol now"><span class="lbl">Now</span><p class="now-txt" tabindex="-1">${esc(s.now)}${citeTag(s.nowRef)}</p></div>
       </div>
       <div class="effect"><span class="lbl">Effect on processes and outcomes</span><p>${esc(s.ra)}</p></div>
     </div>
@@ -1882,7 +1929,7 @@ section.block.slide { padding-block: 26px; }
     { t: "Knowledge sits with one person", short: ["Knowledge in", "one person"], imp: "Low", lik: "Low", signs: ["One person can answer every question", "Work stops when they're out"], fix: ["Pair people on key work", "Make documentation part of done", "Keep code in a shared repository"] },
     { t: "AI models or vendors change underneath you", short: ["Models change"], imp: "Medium", lik: "High", signs: ["Output quality shifts after an update", "Pricing or terms change"], fix: ["Re-run your test cases after every model change", "Pin model versions where you can", "Avoid depending on a single vendor"] },
     { t: "Hidden back-end problems slow development", short: ["Black-box", "problems"], imp: "Medium", lik: "Medium", signs: ["Output changes and nobody can explain why", "Days spent chasing errors that are hard to reproduce"], fix: ["Log inputs, outputs and model versions", "Keep a fixed set of test cases to catch changes quickly", "Prefer tools that show their sources, and add human review"] },
-    { t: "Easy tool-building spawns side projects", short: ["Side projects", "pull focus"], imp: "Medium", lik: "Low", signs: ["New mini-tools built in an afternoon with AI coding tools such as Claude Code", "Core features slip while side tools get attention"], fix: ["Keep a visible 'later' list for side ideas", "Check new work against the project's core goal", "Agree on who can start a new tool, and when"] },
+    { t: "Easy tool-building spawns side projects", short: ["Side projects", "pull focus"], imp: "Medium", lik: "Low", signs: ["New mini-tools built in an afternoon with AI coding tools such as Claude Code", "Core features slip while side tools get attention"], signRefs: ["claude-4"], fix: ["Keep a visible 'later' list for side ideas", "Check new work against the project's core goal", "Agree on who can start a new tool, and when"] },
     { t: "Users don't see the value of testing", short: ["Users don't see", "the value"], imp: "Medium", lik: "Medium", signs: ["Testers ask why they should bother", "Feedback is polite but vague"], fix: ["Start testing with the task that hurts users most", "Show the time or errors saved on their own work", "Share what changed because of their feedback"] },
     { t: "Users don't have time to test", short: ["No time to test"], imp: "Medium", lik: "High", signs: ["Test sessions get canceled or rescheduled", "Feedback arrives after the build has moved on"], fix: ["Ask supervisors to protect testing time", "Keep sessions short: 20 to 30 minutes on one task", "Schedule testing away from proposal deadline crunches"] },
     { t: "User testing lacks focus and direction", short: ["Testing lacks", "direction"], imp: "Low", lik: "High", signs: ["Sessions turn into general demos", "Feedback covers everything except the question you needed answered"], fix: ["Set one or two questions for each session", "Give testers a real task and a short script", "Write down decisions after each session"] },
@@ -1923,8 +1970,9 @@ section.block.slide { padding-block: 26px; }
     rkNodes.forEach((g, j) => { g.classList.toggle("sel", i === j); g.setAttribute("aria-pressed", i === j); });
     const r = RISKS[i];
     $("riskDetail").innerHTML = `<div class="rd-top"><h3>${esc(r.t)}</h3></div>
-      <div class="rd-cols"><div><h4>Warning signs</h4><ul>${r.signs.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div>
+      <div class="rd-cols"><div><h4>Warning signs</h4><ul>${r.signs.map((x, k) => `<li>${esc(x)}${citeTag(r.signRefs && r.signRefs[k])}</li>`).join("")}</ul></div>
       <div><h4>How to reduce it</h4><ul>${r.fix.map(x => `<li>${esc(x)}</li>`).join("")}</ul></div></div>`;
+    if (citesReady) renderCites($("riskDetail"));
   }
   rkNodes.forEach((g, i) => {
     g.addEventListener("click", () => showRisk(i));
@@ -1991,6 +2039,21 @@ section.block.slide { padding-block: 26px; }
   $("qrOpen").onclick = openQR; $("qrOpen2").onclick = openQR; $("qrOpen3").onclick = openQR; $("qrClose").onclick = closeQR;
   ov.addEventListener("click", e => { if (e.target === ov) closeQR(); });
   document.addEventListener("keydown", e => { if (e.key === "Escape" && !ov.hidden) closeQR(); });
+
+  /* ---------- Number citations and fill the References slide ---------- */
+  document.querySelectorAll(".slide").forEach(s => {
+    if (s.id === "references") return;
+    [s, ...s.querySelectorAll("[data-ref], [data-refs]")].forEach(el => {
+      const keys = el.dataset.ref || el.dataset.refs;
+      if (keys) keys.trim().split(/\s+/).filter(k => REFS[k]).forEach(refNum);
+    });
+  });
+  renderCites(document);
+  citesReady = true;
+  $("refList").innerHTML = refOrder.map((k, i) => {
+    const r = REFS[k];
+    return `<li><span class="ref-n">${i + 1}</span><div><span class="ref-who">${esc(r.who)}.</span> <span class="ref-title">${esc(r.title)}.</span> <span class="ref-date">${esc(r.date)}.</span> <a href="${esc(r.url)}" target="_blank" rel="noopener">${esc(r.url)}</a></div></li>`;
+  }).join("");
 
   /* ---------- Slide deck ---------- */
   const slides = [...document.querySelectorAll(".slide")];
