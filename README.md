@@ -10,7 +10,9 @@ Interactive slide presentation for a concurrent session at the NCURA 21st Pre-Aw
 
 Everything is in one self-contained file, [`index.html`](index.html). It has no build step and no external files; the survey QR code is embedded in the page.
 
-It's published as a Claude artifact at https://claude.ai/artifact/W3RTYoZGhRE2NRL9FGeab6 (private until shared from the page's Share menu).
+**View the slides:** https://dashiell-tyler.github.io/AI_In_RA_Program_Management/ (public, via GitHub Pages; updates automatically when `main` changes).
+
+It's also published as a Claude artifact at https://claude.ai/artifact/W3RTYoZGhRE2NRL9FGeab6 (private until shared from the page's Share menu).
 
 ### Sections and timing (60-minute session)
 
